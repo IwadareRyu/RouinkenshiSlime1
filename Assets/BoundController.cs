@@ -35,9 +35,9 @@ public class BoundController : MonoBehaviour
             _Attack.gameObject.SetActive(true);
             if (_copyList.Count > 0)
             {
-                CopyBase copy = _copyList[0];
-                _copyList.RemoveAt(0);
-                copy.CopyTech();
+                //CopyBase copy = _copyList[0];
+                //_copyList.RemoveAt(0);
+                //copy.CopyTech();
             }
             _cooltime = true;
             AttackAni.Play("AttackAni");
