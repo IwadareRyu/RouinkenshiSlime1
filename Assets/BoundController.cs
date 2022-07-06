@@ -33,13 +33,13 @@ public class BoundController : MonoBehaviour
         if(Input.GetButtonDown("Fire1") && !_cooltime)
         {
             _Attack.gameObject.SetActive(true);
-            //if (_copyList.Count > 0)
-            //{
-            //    CopyBase copy = _copyList[0];
-            //    _copyList.RemoveAt(0);
-            //    copy.CopyTech();
-            //}
-                _cooltime = true;
+            if (_copyList.Count > 0)
+            {
+                CopyBase copy = _copyList[0];
+                _copyList.RemoveAt(0);
+                copy.CopyTech();
+            }
+            _cooltime = true;
             AttackAni.Play("AttackAni");
             Instantiate(AttackSE, this.transform.position, this.transform.rotation);
             StartCoroutine(Attacktime());

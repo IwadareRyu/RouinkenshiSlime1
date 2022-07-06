@@ -6,7 +6,7 @@ public class TumeBulletCopy : MonoBehaviour
 {
     [SerializeField] float _speed = 15f;
     Rigidbody2D rb;
-    [SerializeField] BoundController _muki;
+     BoundController _muki;
     // Start is called before the first frame update
     void Start()
     {

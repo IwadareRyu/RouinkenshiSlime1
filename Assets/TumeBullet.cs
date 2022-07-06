@@ -6,7 +6,7 @@ public class TumeBullet : CopyBase
 {
     [SerializeField] GameObject _copyTumeBullet;
     private GameObject Mazzle;
-    [SerializeField]private Transform _atari;
+    private Transform _atari;
     float _speed = 15f;
     Rigidbody2D rb;
     public override void CopyTech()
