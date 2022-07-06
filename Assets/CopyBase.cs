@@ -31,15 +31,20 @@ public abstract class CopyBase : MonoBehaviour
                 _player.gameObject.GetComponent<BoundController>().GetCopy(this);
                 //Destroy(this.gameObject);
             }
-        }
-        if(collision.gameObject.tag.Equals("Player"))
-        {
-            if (_whatitem == Item.item)
+            else
             {
                 CopyTech();
                 Destroy(this.gameObject);
             }
         }
+        //if(collision.gameObject.tag.Equals("Player"))
+        //{
+        //    if (_whatitem == Item.item)
+        //    {
+        //        CopyTech();
+        //        Destroy(this.gameObject);
+        //    }
+        //}
     }
 
     enum Item

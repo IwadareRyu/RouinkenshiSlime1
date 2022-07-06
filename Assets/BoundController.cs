@@ -26,7 +26,7 @@ public class BoundController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("リストの長さ " + _copyList.Count);
+       // Debug.Log("リストの長さ " + _copyList.Count);
         h = Input.GetAxis("Horizontal");
         FlipX(h);
         // Spaceキーか左クリックで攻撃ができ、攻撃が球にあたるとリストに登録される仕様にしたいです。
