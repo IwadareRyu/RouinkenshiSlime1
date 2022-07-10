@@ -31,6 +31,7 @@ public abstract class CopyBase : MonoBehaviour
                 _player.gameObject.GetComponent<BoundController>().GetCopy(this);
                 //Destroy(this.gameObject);
             }
+            //列挙型がitemだと、その場でCopytechを呼び出す。
             else
             {
                 CopyTech();
@@ -55,7 +56,7 @@ public abstract class CopyBase : MonoBehaviour
     {
         /// <summary>コピーした時 </summary>
         Copy,
-        /// <summary>アイテムを拾ったとき(今のところなし) </summary>
+        /// <summary>アイテムを拾ったとき(BoundControllerでリストが使えないので今のところこれを使う。) </summary>
         item,
     }
 }
