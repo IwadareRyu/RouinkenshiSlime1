@@ -22,4 +22,16 @@ public class TumeBulletCopy : MonoBehaviour
     {
 
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Enemy")
+        {
+            Destroy(collision.gameObject);
+            Destroy(this.gameObject);
+        }
+        else if(collision.gameObject.tag == "Wall")
+        {
+            Destroy(this.gameObject);
+        }
+    }
 }

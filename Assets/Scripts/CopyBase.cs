@@ -37,6 +37,10 @@ public abstract class CopyBase : MonoBehaviour
                 Destroy(this.gameObject);
             }
         }
+        else if(collision.gameObject.tag.Equals("Wall"))
+        {
+            Destroy(this.gameObject);
+        }
         //if(collision.gameObject.tag.Equals("Player"))
         //{
         //    if (_whatitem == Item.item)

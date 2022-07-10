@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6422200308463871831}
   - component: {fileID: 3391253400171057239}
   - component: {fileID: 3805634173857022366}
+  - component: {fileID: -7500782934386838659}
   m_Layer: 0
   m_Name: tumedamaCopy
   m_TagString: Untagged
@@ -244,3 +245,16 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-7500782934386838659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7014771343959990684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6a41c992b65ec34f9aa84dba81b6d32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 15

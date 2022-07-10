@@ -126,10 +126,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ea40301fb3e612408954acbfc5eadf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sound: {fileID: 8300000, guid: 4cf08a80f154e034c80ccdb8f4688aa0, type: 3}
+  _sound: {fileID: 8300000, guid: 0fcc09afe6ea4f749978403c408cb2db, type: 3}
   _whatitem: 1
   _player: {fileID: 7552993847349569228, guid: a317265e719211b44a63db19fa10e6a6, type: 3}
   _copyTumeBullet: {fileID: 7014771343959990684, guid: 665f6c9f8b995fc4abc4bcfbd7c4e363, type: 3}
+  _speed: 10
 --- !u!50 &-4919838116132420809
 Rigidbody2D:
   serializedVersion: 4
