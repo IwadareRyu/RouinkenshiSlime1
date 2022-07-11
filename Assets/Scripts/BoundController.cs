@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BoundController : MonoBehaviour
 {
-    Rigidbody2D m_rb2d;
+    Rigidbody2D _rb2d;
     [SerializeField] GameObject Effect;
     [SerializeField] float Speed = 3f;
     float h;
@@ -14,12 +14,12 @@ public class BoundController : MonoBehaviour
     Animator AttackAni;
     [SerializeField] GameObject AttackSE;
     // コピーのリスト
-    List<CopyBase> _copyList = new List<CopyBase>();
+    //List<CopyBase> _copyList = new List<CopyBase>();
     public float minas;
     // Start is called before the first frame update
     void Start()
     {
-        m_rb2d = GetComponent<Rigidbody2D>();
+        _rb2d = GetComponent<Rigidbody2D>();
         AttackAni =GetComponent<Animator>();
     }
 
@@ -33,12 +33,12 @@ public class BoundController : MonoBehaviour
         if(Input.GetButtonDown("Fire1") && !_cooltime)
         {
             _Attack.gameObject.SetActive(true);
-            if (_copyList.Count > 0)
-            {
-                //CopyBase copy = _copyList[0];
-                //_copyList.RemoveAt(0);
-                //copy.CopyTech();
-            }
+            //if (_copyList.Count > 0)
+            //{
+            //    CopyBase copy = _copyList[0];
+            //    _copyList.RemoveAt(0);
+            //    copy.CopyTech();
+            //}
             _cooltime = true;
             AttackAni.Play("AttackAni");
             Instantiate(AttackSE, this.transform.position, this.transform.rotation);
@@ -48,7 +48,7 @@ public class BoundController : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        m_rb2d.velocity = new Vector2(h * Speed,m_rb2d.velocity.y);
+        _rb2d.velocity = new Vector2(h * Speed,_rb2d.velocity.y);
     }
 
     void FlipX(float horizontal)
@@ -81,14 +81,14 @@ public class BoundController : MonoBehaviour
     }
     /// <summary>一回GetCopyでここを呼んだのですが、Countの長さが変になります。 </summary>
     /// <param name="copy"></param>
-    public void GetCopy(CopyBase copy)
-    {
-        //while(_copyList.Count < 6)
-        //{
-        _copyList.Add(copy);
-        Debug.Log("リストの長さ " + _copyList.Count);
-        //}
-    }
+    //public void GetCopy(CopyBase copy)
+    //{
+    //    //while(_copyList.Count < 6)
+    //    //{
+    //    _copyList.Add(copy);
+    //    Debug.Log("リストの長さ " + _copyList.Count);
+    //    //}
+    //}
         private void OnCollisionEnter2D(Collision2D collision)
     {
         AudioSource audio = GetComponent<AudioSource>();
@@ -96,10 +96,10 @@ public class BoundController : MonoBehaviour
         {
             audio.Play();
         }
-        Instantiate(Effect, this.transform.position, this.transform.rotation);
-        if(collision.gameObject.tag ==("Ground"))
+        Instantiate(Effect, transform.position, transform.rotation);
+        if(collision.gameObject.tag =="Ground")
         {
-            m_rb2d.AddForce(Vector2.up * _jumpPower, ForceMode2D.Impulse);
+            _rb2d.AddForce(Vector2.up * _jumpPower, ForceMode2D.Impulse);
         }
     }
 }

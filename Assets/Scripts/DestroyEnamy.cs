@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DestroyEnamy : MonoBehaviour
 {
+    [SerializeField] int _score = 100;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +20,14 @@ public class DestroyEnamy : MonoBehaviour
     {
         if(collision.gameObject.tag == ("Atari"))
         {
+            FindObjectOfType<GameManager>().AddScore(_score);
+            Destroy(this.gameObject);
+
+        }
+        if (collision.gameObject.tag == ("Bullet"))
+        {
+            FindObjectOfType<GameManager>().AddScore(_score);
+            Destroy(collision.gameObject);
             Destroy(this.gameObject);
         }
     }

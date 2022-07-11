@@ -23,16 +23,16 @@ public abstract class CopyBase : MonoBehaviour
             }
 
             //列挙型がコピーだと、リストに保存される。
-            if(_whatitem == Item.Copy)
-            {
-                //Debug.Log("呼ぶ");
-                this.transform.position = Camera.main.transform.position;
-                GetComponent<Collider2D>().enabled = false;
-                _player.gameObject.GetComponent<BoundController>().GetCopy(this);
-                //Destroy(this.gameObject);
-            }
+            //if(_whatitem == Item.Copy)
+            //{
+            //    //Debug.Log("呼ぶ");
+            //    this.transform.position = Camera.main.transform.position;
+            //    GetComponent<Collider2D>().enabled = false;
+            //    _player.gameObject.GetComponent<BoundController>().GetCopy(this);
+            //    //Destroy(this.gameObject);
+            //}
             //列挙型がitemだと、その場でCopytechを呼び出す。
-            else
+            if(_whatitem == Item.Copy)
             {
                 CopyTech();
                 Destroy(this.gameObject);
@@ -42,21 +42,13 @@ public abstract class CopyBase : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-        //if(collision.gameObject.tag.Equals("Player"))
-        //{
-        //    if (_whatitem == Item.item)
-        //    {
-        //        CopyTech();
-        //        Destroy(this.gameObject);
-        //    }
-        //}
     }
 
     enum Item
     {
         /// <summary>コピーした時 </summary>
         Copy,
-        /// <summary>アイテムを拾ったとき(BoundControllerでリストが使えないので今のところこれを使う。) </summary>
+        /// <summary>アイテムを拾ったとき</summary>
         item,
     }
 }

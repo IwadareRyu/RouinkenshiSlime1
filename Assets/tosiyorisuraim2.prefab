@@ -185,8 +185,8 @@ GameObject:
   - component: {fileID: 7552993847349569231}
   - component: {fileID: 7552993847349569230}
   - component: {fileID: 7552993847349569218}
-  - component: {fileID: 7552993847349569220}
   - component: {fileID: 7552993847349569221}
+  - component: {fileID: 4733893561728667076}
   m_Layer: 0
   m_Name: tosiyorisuraim2
   m_TagString: Untagged
@@ -311,29 +311,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &7552993847349569220
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7552993847349569228}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb0e2dea6701ec94b9eb83e72413c6c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Effect: {fileID: 6296971105126278765, guid: 403495de5c82f384ebd6222b6c2c301c, type: 3}
-  Speed: 3
-  _jumpPower: 5
-  _Attack: {fileID: 7552993847263093667}
-  AttackAni: {fileID: 0}
-  Attackhani: {fileID: 7552993847009999626}
-  AttackSE: {fileID: 5291464307814778211, guid: b77155e1937bdf841b240ace6e99e0e2, type: 3}
-  _copyList:
-  - {fileID: 0}
-  minas: 1
-  ken: {fileID: 0}
 --- !u!82 &7552993847349569221
 AudioSource:
   m_ObjectHideFlags: 0
@@ -430,3 +407,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &4733893561728667076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7552993847349569228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb0e2dea6701ec94b9eb83e72413c6c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Effect: {fileID: 6296971105126278765, guid: 403495de5c82f384ebd6222b6c2c301c, type: 3}
+  Speed: 3
+  _jumpPower: 5
+  _Attack: {fileID: 7552993847263093667}
+  AttackSE: {fileID: 5291464307814778211, guid: b77155e1937bdf841b240ace6e99e0e2, type: 3}
+  minas: 1

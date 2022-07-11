@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 602715976731769843}
   m_Layer: 0
   m_Name: hebimidoricopy
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sound: {fileID: 8300000, guid: 0fcc09afe6ea4f749978403c408cb2db, type: 3}
-  _whatitem: 1
+  _whatitem: 0
   _player: {fileID: 7552993847349569228, guid: a317265e719211b44a63db19fa10e6a6, type: 3}
   _copyHebidama: {fileID: 4279015562470405867, guid: c2a8f8ceb12af21488d4b25150334536, type: 3}
 --- !u!82 &9144601092401346414

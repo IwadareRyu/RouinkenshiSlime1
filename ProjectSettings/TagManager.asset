@@ -8,6 +8,8 @@ TagManager:
   - Atari
   - Wall
   - Enemy
+  - Goal
+  - Bullet
   layers:
   - Default
   - TransparentFX
