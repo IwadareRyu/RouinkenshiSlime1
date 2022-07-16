@@ -9,6 +9,7 @@ public abstract class CopyBase : MonoBehaviour
     /// <summary>アイテムかコピーか</summary>
     [SerializeField] Item _whatitem = Item.Copy;
     [SerializeField] GameObject _player;
+    public bool liftHoming = false;
     public abstract void CopyTech();
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -38,9 +39,13 @@ public abstract class CopyBase : MonoBehaviour
                 Destroy(this.gameObject);
             }
         }
-        else if(collision.gameObject.tag.Equals("Wall"))
+        else if(collision.gameObject.tag.Equals("Wall") || collision.gameObject.tag == "Ground")
         {
             Destroy(this.gameObject);
+        }
+        if (collision.gameObject.tag == "HomingBlock")
+        {
+            liftHoming = true;
         }
     }
 

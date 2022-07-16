@@ -13,6 +13,11 @@ public class BoundController : MonoBehaviour
     [SerializeField] GameObject _Attack;
     Animator AttackAni;
     [SerializeField] GameObject AttackSE;
+    [SerializeField] GameObject _mazzleG;
+    [SerializeField] GameObject _createG;
+    bool _createTime;
+    SpriteRenderer ToshiyoriSp;
+
     // コピーのリスト
     //List<CopyBase> _copyList = new List<CopyBase>();
     public float minas;
@@ -29,7 +34,6 @@ public class BoundController : MonoBehaviour
        // Debug.Log("リストの長さ " + _copyList.Count);
         h = Input.GetAxis("Horizontal");
         FlipX(h);
-        // Spaceキーか左クリックで攻撃ができ、攻撃が球にあたるとリストに登録される仕様にしたいです。
         if(Input.GetButtonDown("Fire1") && !_cooltime)
         {
             _Attack.gameObject.SetActive(true);
@@ -43,7 +47,11 @@ public class BoundController : MonoBehaviour
             AttackAni.Play("AttackAni");
             Instantiate(AttackSE, this.transform.position, this.transform.rotation);
             StartCoroutine(Attacktime());
-
+        }
+        if(Input.GetButtonDown("Jump") && !_createTime)
+        {
+            Instantiate(_createG, _mazzleG.transform.position, Quaternion.identity);
+            _createTime = true;
         }
     }
     private void FixedUpdate()
@@ -97,9 +105,14 @@ public class BoundController : MonoBehaviour
             audio.Play();
         }
         Instantiate(Effect, transform.position, transform.rotation);
-        if(collision.gameObject.tag =="Ground")
+        if(collision.gameObject.tag =="Ground" || collision.gameObject.tag == "HomiGround")
         {
             _rb2d.AddForce(Vector2.up * _jumpPower, ForceMode2D.Impulse);
+            _createTime = false;
+        }
+        if(collision.gameObject.tag == "InsGround" || collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "HomingEnemy")
+        {
+            _rb2d.AddForce(Vector2.up * _jumpPower * 1.2f, ForceMode2D.Impulse);
         }
     }
 }

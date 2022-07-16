@@ -10,6 +10,11 @@ TagManager:
   - Enemy
   - Goal
   - Bullet
+  - InsGround
+  - Mazzle
+  - HomingEnemy
+  - HomiGround
+  - HomingBlock
   layers:
   - Default
   - TransparentFX

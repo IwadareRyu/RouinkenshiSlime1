@@ -11,7 +11,7 @@ public class HebiDama : CopyBase
     Rigidbody2D rb;
     public override void CopyTech()
     {
-        Mazzle = GameObject.Find("PlayerMazzle");
+        Mazzle = GameObject.FindGameObjectWithTag("Mazzle");
         _atari = Mazzle.GetComponent<Transform>();
         Instantiate(_copyHebidama, _atari.position, Quaternion.identity);
     }

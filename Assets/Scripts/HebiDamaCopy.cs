@@ -31,7 +31,7 @@ public class HebiDamaCopy : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Wall")
+        if (collision.gameObject.tag == "Wall" || collision.gameObject.tag == "Ground")
         {
             Destroy(this.gameObject);
         }

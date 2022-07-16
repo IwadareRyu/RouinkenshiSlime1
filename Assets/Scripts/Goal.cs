@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 public class Goal : MonoBehaviour
 {
-    [SerializeField] GameObject Button;
-    [SerializeField] GameObject Goaltext;
+    [SerializeField] UnityEvent _action;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,8 +21,7 @@ public class Goal : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            Button.gameObject.SetActive(true);
-            Goaltext.gameObject.SetActive(true);
+            _action.Invoke();
         }
     }
 }
