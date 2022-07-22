@@ -100,17 +100,20 @@ public class BoundController : MonoBehaviour
         private void OnCollisionEnter2D(Collision2D collision)
     {
         AudioSource audio = GetComponent<AudioSource>();
+
         if (audio != null)
         {
             audio.Play();
         }
+
         Instantiate(Effect, transform.position, transform.rotation);
         if(collision.gameObject.tag =="Ground" || collision.gameObject.tag == "HomiGround")
         {
             _rb2d.AddForce(Vector2.up * _jumpPower, ForceMode2D.Impulse);
             _createTime = false;
         }
-        if(collision.gameObject.tag == "InsGround" || collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "HomingEnemy")
+
+        if(collision.gameObject.tag == "InsGround")
         {
             _rb2d.AddForce(Vector2.up * _jumpPower * 1.2f, ForceMode2D.Impulse);
         }
