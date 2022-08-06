@@ -7,10 +7,12 @@ public class TumeBullet : CopyBase
     [SerializeField] GameObject _copyTumeBullet;
     private GameObject Mazzle;
     private Transform _atari;
-    [SerializeField]float _speed = 15f;
+    [SerializeField]float _speed = 5f;
     Rigidbody2D rb;
+    PlayerButtobi _flip;
     public override void CopyTech()
     {
+
         Mazzle = GameObject.FindGameObjectWithTag("Mazzle");
         _atari = Mazzle.GetComponent<Transform>();
         Instantiate(_copyTumeBullet, _atari.position, Quaternion.identity);

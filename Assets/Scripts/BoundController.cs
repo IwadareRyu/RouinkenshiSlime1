@@ -17,10 +17,8 @@ public class BoundController : MonoBehaviour
     [SerializeField] GameObject _createG;
     bool _createTime;
     SpriteRenderer ToshiyoriSp;
-
-    // コピーのリスト
-    //List<CopyBase> _copyList = new List<CopyBase>();
     public float minas;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -115,7 +113,7 @@ public class BoundController : MonoBehaviour
 
         if(collision.gameObject.tag == "InsGround")
         {
-            _rb2d.AddForce(Vector2.up * _jumpPower * 1.2f, ForceMode2D.Impulse);
+            _rb2d.AddForce(Vector2.up * _jumpPower * 1.5f, ForceMode2D.Impulse);
         }
     }
 }
