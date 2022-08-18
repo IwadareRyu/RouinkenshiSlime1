@@ -18,6 +18,7 @@ public class PlayerButtobi : MonoBehaviour
     [SerializeField] GameObject[] _mazzleL;
     [SerializeField] GameObject[] _mazzleR;
     [SerializeField] GameObject _parentsmimikku;
+    [SerializeField] GameObject _myMimikku;
     int ram2;
     // Start is called before the first frame update
     void Start()
@@ -72,7 +73,7 @@ public class PlayerButtobi : MonoBehaviour
         Instantiate(_bullet, _mazzleE.transform.position, Quaternion.identity);
         yield return new WaitForSeconds(3f);
         Instantiate(_warp, transform.position, Quaternion.identity);
-        transform.position = new Vector2(-2,1.5f);
+        _myMimikku.transform.position = new Vector2(-2,1.5f);
         Instantiate(_warp, transform.position, Quaternion.identity);
         for(var i = 0;i<10;i++)
         {

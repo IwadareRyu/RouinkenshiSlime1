@@ -34,7 +34,7 @@ public class BoundController : MonoBehaviour
         FlipX(h);
         if(Input.GetButtonDown("Fire1") && !_cooltime)
         {
-            _Attack.gameObject.SetActive(true);
+            //_Attack.gameObject.SetActive(true);
             //if (_copyList.Count > 0)
             //{
             //    CopyBase copy = _copyList[0];
@@ -73,7 +73,9 @@ public class BoundController : MonoBehaviour
     }
     IEnumerator Attacktime()
     {
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.1f);
+        _Attack.gameObject.SetActive(true);
+        yield return new WaitForSeconds(0.1f);
         _Attack.gameObject.SetActive(false);
         yield return new WaitForSeconds(0.3f);
         _Attack.gameObject.SetActive(true);
@@ -95,7 +97,7 @@ public class BoundController : MonoBehaviour
     //    Debug.Log("ƒŠƒXƒg‚Ì’·‚³ " + _copyList.Count);
     //    //}
     //}
-        private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         AudioSource audio = GetComponent<AudioSource>();
 
@@ -116,4 +118,15 @@ public class BoundController : MonoBehaviour
             _rb2d.AddForce(Vector2.up * _jumpPower * 1.5f, ForceMode2D.Impulse);
         }
     }
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    //if(collision.gameObject.tag == "EnemyBullet")
+    //    //{
+    //    //    FindObjectOfType<GameManager>().AddLife(-3);
+    //    //}
+    //    //if (collision.gameObject.tag == "Enemy")
+    //    //{
+    //    //    FindObjectOfType<GameManager>().AddLife(-5);
+    //    //}
+    //}
 }

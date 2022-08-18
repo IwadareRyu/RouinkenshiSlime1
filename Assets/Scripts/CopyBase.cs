@@ -47,6 +47,10 @@ public abstract class CopyBase : MonoBehaviour
         {
             liftHoming = true;
         }
+        if(collision.gameObject.tag == "Player")
+        {
+            FindObjectOfType<GameManager>().AddLife(-3);
+        }
     }
 
     enum Item

@@ -34,5 +34,9 @@ public class DestroyEnamy : MonoBehaviour
             Destroy(collision.gameObject);
             _enemyHP--;
         }
+        if(collision.gameObject.tag == "Player")
+        {
+            FindObjectOfType<GameManager>().AddLife(-5);
+        }
     }
 }

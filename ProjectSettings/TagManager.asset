@@ -15,14 +15,16 @@ TagManager:
   - HomingEnemy
   - HomiGround
   - HomingBlock
+  - Spown
+  - EnemyBullet
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - enemy
   - Water
   - UI
-  - 
+  - Player
   - 
   - 
   - 

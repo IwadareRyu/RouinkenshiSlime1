@@ -6,6 +6,7 @@ public class MimikkuParents : CopyBase
 {
     private GameObject Mazzle;
     private Transform _atari;
+    [SerializeField] GameObject _copyTumeBullet;
     Rigidbody2D _rb;
     float _speed = 3f;
     private GameObject _playerpos;
@@ -17,6 +18,7 @@ public class MimikkuParents : CopyBase
     {
         Mazzle = GameObject.FindGameObjectWithTag("Mazzle");
         _atari = Mazzle.GetComponent<Transform>();
+        Instantiate(_copyTumeBullet, _atari.position, Quaternion.identity);
     }
 
     // Start is called before the first frame update

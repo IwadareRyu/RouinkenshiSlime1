@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 306577477974966979}
   - component: {fileID: 3994578723087342185}
   - component: {fileID: -8022756696284994981}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SlimeWall
   m_TagString: InsGround
   m_Icon: {fileID: 0}

@@ -11,8 +11,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] string _resultText = "ResultScore";
     string _reScore;
     int _score = 0;
-    int _life = 100;
+    [SerializeField]int _life = 100;
     bool _isStarted;
+    [SerializeField] bool _godmode;
+    [SerializeField] Slider _lifeGauge;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,7 +29,9 @@ public class GameManager : MonoBehaviour
             _isStarted = true;
         }
         _life = _maxLife;
+        _scoreText.text = _score.ToString("D6");
         AddScore(0);
+        AddLife(0);
     }
 
     private void ShowScore()
@@ -43,8 +47,11 @@ public class GameManager : MonoBehaviour
 
     public void AddScore(int score)
     {
-        _score += score;
-        _scoreText.text = _score.ToString("D5");
+        if (!_godmode)
+        {
+            _score += score;
+            _scoreText.text = _score.ToString("D6");
+        }
     }
     public void SetName(Text input)
     {
@@ -53,6 +60,14 @@ public class GameManager : MonoBehaviour
     private void OnLevelWasLoaded(int level)
     {
         if (_isStarted) ShowScore();
+    }
+    public void AddLife(int life)
+    {
+        if (!_godmode)
+        {
+            _life += life;
+            _lifeGauge.value = (float)_life / _maxLife;
+        }
     }
     // Update is called once per frame
     void Update()
