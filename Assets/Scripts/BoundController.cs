@@ -82,7 +82,7 @@ public class BoundController : MonoBehaviour
         Instantiate(AttackSE, this.transform.position, this.transform.rotation);
         yield return new WaitForSeconds(0.3f);
         _Attack.gameObject.SetActive(false);
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(1.0f);
         _cooltime = false;
 
 

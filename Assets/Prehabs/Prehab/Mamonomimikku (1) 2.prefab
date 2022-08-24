@@ -223,7 +223,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.9528302, g: 0.82191044, b: 0.6777679, a: 1}
+  m_Color: {r: 1, g: 0, b: 0.88663435, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -328,11 +328,11 @@ GameObject:
   - component: {fileID: 8784358683049047416}
   - component: {fileID: 7695732315497870759}
   - component: {fileID: 1044840650286554153}
-  - component: {fileID: 856536852610446388}
-  - component: {fileID: 8215621127824369795}
+  - component: {fileID: 5971482396002746692}
+  - component: {fileID: 7628388752742019393}
   m_Layer: 0
-  m_Name: Mamonomimikku (1) 1
-  m_TagString: Bullet
+  m_Name: Mamonomimikku (1) 2
+  m_TagString: EnemyBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -344,8 +344,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8141131296792202310}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.44, y: -3.59, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.44, y: -3.59, z: 21}
   m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -378,7 +378,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.87, y: 4}
+  m_Size: {x: 1.87, y: 1.87}
   m_EdgeRadius: 0
 --- !u!95 &1044840650286554153
 Animator:
@@ -400,7 +400,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &856536852610446388
+--- !u!114 &5971482396002746692
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -409,13 +409,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 8141131296792202310}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 249e6c10aefb582448741865846261e3, type: 3}
+  m_Script: {fileID: 11500000, guid: ba801f4f27c73f0409a9ca3c71363b0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 20
-  _limitSpeed: 30
-  _inpulseSpeed: 5
---- !u!50 &8215621127824369795
+  _sound: {fileID: 8300000, guid: 871096c674bbb5b419845b78ecebdc44, type: 3}
+  _whatitem: 0
+  _player: {fileID: 7552993847349569228, guid: a317265e719211b44a63db19fa10e6a6, type: 3}
+  liftHoming: 0
+  _copyTumeBullet: {fileID: 8141131296792202310, guid: 6470f64262d020f49915d65da3315362, type: 3}
+  _playerOffest: 3
+  _cavePower: 2
+--- !u!50 &7628388752742019393
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0

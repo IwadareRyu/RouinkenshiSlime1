@@ -17,21 +17,28 @@ public class PlayerButtobi : MonoBehaviour
     [SerializeField] GameObject[] _mazzleU;
     [SerializeField] GameObject[] _mazzleL;
     [SerializeField] GameObject[] _mazzleR;
+    [SerializeField] Transform[] _warpMazzle;
     [SerializeField] GameObject _parentsmimikku;
+    [SerializeField] GameObject _parentsmimikku2;
     [SerializeField] GameObject _myMimikku;
+    [SerializeField] GameObject _hakomimikku;
     int ram2;
+    public bool _attackTime;
     // Start is called before the first frame update
     void Start()
     {
-        
-        Instantiate(_bikkuri, _mazzle2.transform.position, Quaternion.identity);
-        StartCoroutine(EnemyTime());
+
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        if (_attackTime)
+        {
+            _attackTime = false;
+            Instantiate(_bikkuri, _mazzle2.transform.position, Quaternion.identity);
+            StartCoroutine(EnemyTime());
+        }
     }
     private void FixedUpdate()
     {
@@ -73,7 +80,7 @@ public class PlayerButtobi : MonoBehaviour
         Instantiate(_bullet, _mazzleE.transform.position, Quaternion.identity);
         yield return new WaitForSeconds(3f);
         Instantiate(_warp, transform.position, Quaternion.identity);
-        _myMimikku.transform.position = new Vector2(-2,1.5f);
+        _myMimikku.transform.position = _warpMazzle[0].position;
         Instantiate(_warp, transform.position, Quaternion.identity);
         for(var i = 0;i<10;i++)
         {
@@ -82,5 +89,39 @@ public class PlayerButtobi : MonoBehaviour
             ram2 = ram1;
             Instantiate(_parentsmimikku, _mazzleU[ram2].transform.position,Quaternion.identity);
         }
+        yield return new WaitForSeconds(5f);
+        int ram = Random.Range(1, 3);
+        Debug.Log(ram);
+        if(ram == 1)
+        {
+            Instantiate(_warp, transform.position, Quaternion.identity);
+            _myMimikku.transform.position = _warpMazzle[ram].position;
+            Instantiate(_warp, transform.position, Quaternion.identity);
+            for (var i = 0;i < 10;i++)
+            {
+                yield return new WaitForSeconds(2f);
+                int ram1 = Random.Range(0, 3);
+                Instantiate(_parentsmimikku2, _mazzleL[ram1].transform.position, Quaternion.identity);
+            }
+        }
+        else
+        {
+            Instantiate(_warp, transform.position, Quaternion.identity);
+            _myMimikku.transform.position = _warpMazzle[ram].position;
+            Instantiate(_warp, transform.position, Quaternion.identity);
+            for (var i = 0; i < 10; i++)
+            {
+                yield return new WaitForSeconds(2f);
+                int ram1 = Random.Range(0, 3);
+                Instantiate(_parentsmimikku2, _mazzleR[ram1].transform.position, Quaternion.identity);
+            }
+        }
+        yield return new WaitForSeconds(5f);
+        ram = Random.Range(3, 5);
+        Instantiate(_warp, transform.position, Quaternion.identity);
+        _myMimikku.transform.position = _warpMazzle[ram].position;
+        Instantiate(_warp, transform.position, Quaternion.identity);
+        _hakomimikku.gameObject.SetActive(true);
+        gameObject.SetActive(false);
     }
 }

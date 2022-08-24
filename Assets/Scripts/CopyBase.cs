@@ -49,7 +49,7 @@ public abstract class CopyBase : MonoBehaviour
         }
         if(collision.gameObject.tag == "Player")
         {
-            FindObjectOfType<GameManager>().AddLife(-3);
+            FindObjectOfType<GameManager>().AddLife(-5);
         }
     }
 

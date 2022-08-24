@@ -27,5 +27,9 @@ public class ItazuraBullet : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+        if(collision.gameObject.tag == "Player")
+        {
+            FindObjectOfType<GameManager>().AddLife(-5);
+        }
     }
 }
