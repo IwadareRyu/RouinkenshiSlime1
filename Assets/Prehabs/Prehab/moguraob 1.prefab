@@ -160,6 +160,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _score: 100
   _enemyHP: 1
+  _zangeki: {fileID: 2674248802821844076, guid: 3621c77ea763c7d47b9a61f44ee736ce, type: 3}
+  _hit: {fileID: 7812170106659806327, guid: c590cb316364d614097e6b7009343f2a, type: 3}
 --- !u!95 &2840300982312536576
 Animator:
   serializedVersion: 4

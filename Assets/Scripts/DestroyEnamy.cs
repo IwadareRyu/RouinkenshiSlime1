@@ -6,6 +6,8 @@ public class DestroyEnamy : MonoBehaviour
 {
     [SerializeField] int _score = 100;
     [SerializeField] int _enemyHP = 1;
+    [SerializeField] GameObject _zangeki;
+    [SerializeField] GameObject _hit;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,19 +26,22 @@ public class DestroyEnamy : MonoBehaviour
     {
         if(collision.gameObject.tag == ("Atari"))
         {
-            FindObjectOfType<GameManager>().AddScore(_score);
-
-            _enemyHP -= 2;
+            FindObjectOfType<GameManager>().AddScore(_score * 5);
+            Instantiate(_zangeki, transform.position, Quaternion.identity);
+            _enemyHP --;
         }
         if (collision.gameObject.tag == ("Bullet"))
         {
             FindObjectOfType<GameManager>().AddScore(_score);
             Destroy(collision.gameObject);
+            Instantiate(_hit, transform.position, Quaternion.identity);
             _enemyHP--;
         }
         if(collision.gameObject.tag == "Player")
         {
+            Instantiate(_hit, collision.transform.position, Quaternion.identity);
             FindObjectOfType<GameManager>().AddLife(-5);
+
         }
     }
 }

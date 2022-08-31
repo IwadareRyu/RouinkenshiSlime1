@@ -7,6 +7,7 @@ public class ItazuraBullet : MonoBehaviour
     [SerializeField] float _speed = 5f;
     Rigidbody2D rb;
     PlayerButtobi _flip;
+    [SerializeField] GameObject _hit;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +30,7 @@ public class ItazuraBullet : MonoBehaviour
         }
         if(collision.gameObject.tag == "Player")
         {
+            Instantiate(_hit, collision.transform.position, Quaternion.identity);
             FindObjectOfType<GameManager>().AddLife(-5);
         }
     }

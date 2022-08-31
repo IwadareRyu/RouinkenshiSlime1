@@ -10,6 +10,7 @@ public abstract class CopyBase : MonoBehaviour
     [SerializeField] Item _whatitem = Item.Copy;
     [SerializeField] GameObject _player;
     public bool liftHoming = false;
+    [SerializeField] GameObject _hit;
     public abstract void CopyTech();
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -49,6 +50,7 @@ public abstract class CopyBase : MonoBehaviour
         }
         if(collision.gameObject.tag == "Player")
         {
+            Instantiate(_hit, collision.transform.position, Quaternion.identity);
             FindObjectOfType<GameManager>().AddLife(-5);
         }
     }

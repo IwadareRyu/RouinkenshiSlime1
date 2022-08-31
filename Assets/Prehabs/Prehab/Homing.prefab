@@ -103,6 +103,7 @@ MonoBehaviour:
   _whatitem: 0
   _player: {fileID: 7552993847349569228, guid: a317265e719211b44a63db19fa10e6a6, type: 3}
   liftHoming: 0
+  _hit: {fileID: 7812170106659806327, guid: c590cb316364d614097e6b7009343f2a, type: 3}
   _copyTumeBullet: {fileID: 8150929985887061976, guid: be3b35dafbab2d84abb2eb3d7242a3ff, type: 3}
   _speed: 10
   _limitSpeed: 10
