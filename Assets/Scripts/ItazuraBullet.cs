@@ -13,7 +13,7 @@ public class ItazuraBullet : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         _flip = GameObject.FindWithTag("HomingEnemy").GetComponent<PlayerButtobi>();
-        rb.velocity = Vector2.left * _speed * _flip.minas;
+        rb.velocity = Vector2.left * _speed * _flip._minasmimikku;
     }
 
     // Update is called once per frame

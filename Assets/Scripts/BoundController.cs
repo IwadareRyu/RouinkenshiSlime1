@@ -16,8 +16,8 @@ public class BoundController : MonoBehaviour
     [SerializeField] GameObject _mazzleG;
     [SerializeField] GameObject _createG;
     bool _createTime;
-    SpriteRenderer ToshiyoriSp;
-    public float minas;
+    float minas = 1;
+    public float _minas => minas;
 
     // Start is called before the first frame update
     void Start()

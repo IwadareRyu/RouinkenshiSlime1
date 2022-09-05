@@ -12,7 +12,8 @@ public class PlayerButtobi : MonoBehaviour
     [SerializeField] GameObject _mazzle2;
     [SerializeField] GameObject _bikkuri;
     [SerializeField] GameObject _bullet;
-    public float minas;
+    float minas;
+    public float _minasmimikku => minas;
     [SerializeField] GameObject _warp;
     [SerializeField] GameObject[] _mazzleU;
     [SerializeField] GameObject[] _mazzleL;
