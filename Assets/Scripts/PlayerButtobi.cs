@@ -24,10 +24,11 @@ public class PlayerButtobi : MonoBehaviour
     [SerializeField] GameObject _hakomimikku;
     int ram2;
     public bool _attackTime;
+    Animator _anim;
     // Start is called before the first frame update
     void Start()
     {
-
+        _anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -37,6 +38,7 @@ public class PlayerButtobi : MonoBehaviour
         {
             _attackTime = false;
             Instantiate(_bikkuri, _mazzle2.transform.position, Quaternion.identity);
+            _anim.Play("mumukku2");
             StartCoroutine(EnemyTime());
         }
     }
@@ -82,6 +84,7 @@ public class PlayerButtobi : MonoBehaviour
         Instantiate(_warp, transform.position, Quaternion.identity);
         _myMimikku.transform.position = _warpMazzle[0].position;
         Instantiate(_warp, transform.position, Quaternion.identity);
+        _anim.Play("Syokanmae");
         for(var i = 0;i<10;i++)
         {
             yield return new WaitForSeconds(2f);
@@ -92,11 +95,13 @@ public class PlayerButtobi : MonoBehaviour
         yield return new WaitForSeconds(5f);
         int ram = Random.Range(1, 3);
         Debug.Log(ram);
+        _anim.Play("BeforeAttack");
         if(ram == 1)
         {
             Instantiate(_warp, transform.position, Quaternion.identity);
             _myMimikku.transform.position = _warpMazzle[ram].position;
             Instantiate(_warp, transform.position, Quaternion.identity);
+            Instantiate(_bikkuri, _mazzle2.transform.position, Quaternion.identity);
             for (var i = 0;i < 10;i++)
             {
                 yield return new WaitForSeconds(2f);
@@ -109,6 +114,7 @@ public class PlayerButtobi : MonoBehaviour
             Instantiate(_warp, transform.position, Quaternion.identity);
             _myMimikku.transform.position = _warpMazzle[ram].position;
             Instantiate(_warp, transform.position, Quaternion.identity);
+            Instantiate(_bikkuri, _mazzle2.transform.position, Quaternion.identity);
             for (var i = 0; i < 10; i++)
             {
                 yield return new WaitForSeconds(2f);
