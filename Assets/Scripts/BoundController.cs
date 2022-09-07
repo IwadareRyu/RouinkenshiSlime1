@@ -34,13 +34,6 @@ public class BoundController : MonoBehaviour
         FlipX(h);
         if(Input.GetButtonDown("Fire1") && !_cooltime)
         {
-            //_Attack.gameObject.SetActive(true);
-            //if (_copyList.Count > 0)
-            //{
-            //    CopyBase copy = _copyList[0];
-            //    _copyList.RemoveAt(0);
-            //    copy.CopyTech();
-            //}
             _cooltime = true;
             AttackAni.Play("AttackAni");
             Instantiate(AttackSE, this.transform.position, this.transform.rotation);
@@ -87,16 +80,6 @@ public class BoundController : MonoBehaviour
 
 
     }
-    /// <summary>一回GetCopyでここを呼んだのですが、Countの長さが変になります。 </summary>
-    /// <param name="copy"></param>
-    //public void GetCopy(CopyBase copy)
-    //{
-    //    //while(_copyList.Count < 6)
-    //    //{
-    //    _copyList.Add(copy);
-    //    Debug.Log("リストの長さ " + _copyList.Count);
-    //    //}
-    //}
     private void OnCollisionEnter2D(Collision2D collision)
     {
         AudioSource audio = GetComponent<AudioSource>();
@@ -118,15 +101,4 @@ public class BoundController : MonoBehaviour
             _rb2d.AddForce(Vector2.up * _jumpPower * 1.5f, ForceMode2D.Impulse);
         }
     }
-    //private void OnTriggerEnter2D(Collider2D collision)
-    //{
-    //    //if(collision.gameObject.tag == "EnemyBullet")
-    //    //{
-    //    //    FindObjectOfType<GameManager>().AddLife(-3);
-    //    //}
-    //    //if (collision.gameObject.tag == "Enemy")
-    //    //{
-    //    //    FindObjectOfType<GameManager>().AddLife(-5);
-    //    //}
-    //}
 }

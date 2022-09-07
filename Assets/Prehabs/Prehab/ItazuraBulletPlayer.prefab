@@ -180,9 +180,9 @@ GameObject:
   - component: {fileID: 8150929985887061977}
   - component: {fileID: 8150929985887061980}
   - component: {fileID: 3665079527381174768}
-  - component: {fileID: 1295974341173316033}
+  - component: {fileID: 8981944073161250679}
   m_Layer: 0
-  m_Name: ItazuraBullet
+  m_Name: ItazuraBulletPlayer
   m_TagString: EnemyBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -294,7 +294,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &1295974341173316033
+--- !u!114 &8981944073161250679
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -303,8 +303,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 8150929985887061976}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f6746ca5ee57f84ebd944370ab5357c, type: 3}
+  m_Script: {fileID: 11500000, guid: da984bd52d59356409fa40615495d058, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 5
+  _speed: 3
   _hit: {fileID: 7812170106659806327, guid: c590cb316364d614097e6b7009343f2a, type: 3}

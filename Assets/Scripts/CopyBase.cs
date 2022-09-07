@@ -51,7 +51,7 @@ public abstract class CopyBase : MonoBehaviour
         if(collision.gameObject.tag == "Player")
         {
             Instantiate(_hit, collision.transform.position, Quaternion.identity);
-            FindObjectOfType<GameManager>().AddLife(-5);
+            FindObjectOfType<GameManager>().AddLife(-5f);
         }
     }
 

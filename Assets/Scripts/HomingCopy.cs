@@ -19,9 +19,16 @@ public class HomingCopy : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         _bulletTurn = GetComponent<Transform>();
         Player = GameObject.FindGameObjectWithTag("HomingEnemy");
-        _playerturn = Player.GetComponent<Transform>();
-        _muki = GameObject.FindWithTag("Player").GetComponent<BoundController>();
-        rb.AddForce(Vector2.right * _inpulseSpeed * _muki._minas,ForceMode2D.Impulse);
+        if (Player)
+        {
+            _playerturn = Player.GetComponent<Transform>();
+            _muki = GameObject.FindWithTag("Player").GetComponent<BoundController>();
+            rb.AddForce(Vector2.right * _inpulseSpeed * _muki._minas, ForceMode2D.Impulse);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     // Update is called once per frame
