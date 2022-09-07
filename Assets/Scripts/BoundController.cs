@@ -18,31 +18,36 @@ public class BoundController : MonoBehaviour
     bool _createTime;
     float minas = 1;
     public float _minas => minas;
+    GameManager _gm;
 
     // Start is called before the first frame update
     void Start()
     {
         _rb2d = GetComponent<Rigidbody2D>();
         AttackAni =GetComponent<Animator>();
+        _gm = GameObject.FindGameObjectWithTag("GM").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-       // Debug.Log("リストの長さ " + _copyList.Count);
-        h = Input.GetAxis("Horizontal");
-        FlipX(h);
-        if(Input.GetButtonDown("Fire1") && !_cooltime)
+        if (!_gm._gameover)
         {
-            _cooltime = true;
-            AttackAni.Play("AttackAni");
-            Instantiate(AttackSE, this.transform.position, this.transform.rotation);
-            StartCoroutine(Attacktime());
-        }
-        if(Input.GetButtonDown("Jump") && !_createTime)
-        {
-            Instantiate(_createG, _mazzleG.transform.position, Quaternion.identity);
-            _createTime = true;
+            // Debug.Log("リストの長さ " + _copyList.Count);
+            h = Input.GetAxis("Horizontal");
+            FlipX(h);
+            if (Input.GetButtonDown("Fire1") && !_cooltime)
+            {
+                _cooltime = true;
+                AttackAni.Play("AttackAni");
+                Instantiate(AttackSE, this.transform.position, this.transform.rotation);
+                StartCoroutine(Attacktime());
+            }
+            if (Input.GetButtonDown("Jump") && !_createTime)
+            {
+                Instantiate(_createG, _mazzleG.transform.position, Quaternion.identity);
+                _createTime = true;
+            }
         }
     }
     private void FixedUpdate()

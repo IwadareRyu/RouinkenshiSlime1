@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] Text _scoreText;
     [SerializeField] float _maxLife = 100;
     [SerializeField] string _resultText = "ResultScore";
+    [SerializeField] GameObject _gameOverCanvas;
     string _reScore;
     int _score = 0;
     int _maxScore = 999999;
@@ -18,6 +19,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] bool _godmode;
     [SerializeField] Slider _lifeGauge;
     [SerializeField] float _gaugeInterval = 1f;
+    bool _isgameOver;
+    public bool _gameover => _isgameOver;
     // Start is called before the first frame update
     void Start()
     {
@@ -69,6 +72,7 @@ public class GameManager : MonoBehaviour
 
         if (!_godmode)
         {
+            _life += life;
             ChangeValue(_lifeGauge.value + life / _maxLife);
         }
 
@@ -87,9 +91,23 @@ public class GameManager : MonoBehaviour
     {
         if (_isStarted) ShowScore();
     }
+
+    public void Continue()
+    {
+        _godmode = true;
+        AddScore(-10000);
+        _life = 100;
+        ChangeValue(1f);
+        _gameOverCanvas.SetActive(false);
+        _isgameOver = false;
+    }
     // Update is called once per frame
     void Update()
     {
-        
+        if(_life < 0)
+        {
+            _isgameOver = true;
+            _gameOverCanvas.SetActive(true);
+        }
     }
 }
