@@ -49,6 +49,10 @@ public class BoundController : MonoBehaviour
                 _createTime = true;
             }
         }
+        else
+        {
+            h = 0;
+        }
     }
     private void FixedUpdate()
     {
@@ -95,13 +99,13 @@ public class BoundController : MonoBehaviour
         }
 
         Instantiate(Effect, transform.position, transform.rotation);
-        if(collision.gameObject.tag =="Ground" || collision.gameObject.tag == "HomiGround")
+        if(collision.gameObject.tag =="Ground" || collision.gameObject.tag == "HomiGround" || collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "HomingEnemy")
         {
             _rb2d.AddForce(Vector2.up * _jumpPower, ForceMode2D.Impulse);
             _createTime = false;
         }
 
-        if(collision.gameObject.tag == "InsGround")
+        if (collision.gameObject.tag == "InsGround")
         {
             _rb2d.AddForce(Vector2.up * _jumpPower * 1.5f, ForceMode2D.Impulse);
         }

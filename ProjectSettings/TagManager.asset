@@ -18,6 +18,10 @@ TagManager:
   - Spown
   - EnemyBullet
   - GM
+  - Hebi
+  - GameOver
+  - Score
+  - Life
   layers:
   - Default
   - TransparentFX

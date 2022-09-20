@@ -8,10 +8,12 @@ public class DestroyEnamy : MonoBehaviour
     [SerializeField] int _enemyHP = 1;
     [SerializeField] GameObject _zangeki;
     [SerializeField] GameObject _hit;
+    [SerializeField] GameObject _mimikku;
+    [SerializeField] GameObject _mimikkuGekiha;
     // Start is called before the first frame update
     void Start()
     {
-        
+        Debug.LogWarning("ミミックの場合はミミックとミミック撃破にコンポーネントをつけましょう。");
     }
 
     // Update is called once per frame
@@ -19,20 +21,30 @@ public class DestroyEnamy : MonoBehaviour
     {
         if(_enemyHP <= 0)
         {
-            Destroy(this.gameObject);
+            if (!_mimikku)
+            {
+                Destroy(this.gameObject);
+            }
+            else
+            {
+                if (_mimikku && _mimikkuGekiha)
+                {
+                    Instantiate(_mimikkuGekiha, transform.position, Quaternion.identity);
+                    Destroy(gameObject);
+                }
+            }
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.tag == ("Atari"))
         {
-            FindObjectOfType<GameManager>().AddScore(_score * 5);
             Instantiate(_zangeki, transform.position, Quaternion.identity);
             _enemyHP --;
         }
         if (collision.gameObject.tag == ("Bullet"))
         {
-            FindObjectOfType<GameManager>().AddScore(_score);
+            FindObjectOfType<GameManager>().AddScore(_score * 10);
             Destroy(collision.gameObject);
             Instantiate(_hit, transform.position, Quaternion.identity);
             _enemyHP--;

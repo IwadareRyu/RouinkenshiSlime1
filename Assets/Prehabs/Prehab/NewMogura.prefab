@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -5
-  m_Sprite: {fileID: 21300000, guid: ce6ccf0ae25cd8b4f93404b2f07e2afc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dc78532ec22c3a64bbcd987677bde651, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -157,7 +157,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -4
-  m_Sprite: {fileID: 21300000, guid: c3c8d3bc04f6ac64d90ac3cb05295a10, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ff5154aa40ea99145af45579f8d8a6c6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -207,6 +207,7 @@ Transform:
   - {fileID: 7599790593352950661}
   - {fileID: 7599790592674224199}
   - {fileID: 7599790592182853250}
+  - {fileID: 602918072652762431}
   m_Father: {fileID: 7599790593322625276}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -272,6 +273,8 @@ MonoBehaviour:
   _enemyHP: 1
   _zangeki: {fileID: 2674248802821844076, guid: 3621c77ea763c7d47b9a61f44ee736ce, type: 3}
   _hit: {fileID: 7812170106659806327, guid: c590cb316364d614097e6b7009343f2a, type: 3}
+  _mimikku: {fileID: 0}
+  _mimikkuGekiha: {fileID: 0}
 --- !u!1 &7599790591870377520
 GameObject:
   m_ObjectHideFlags: 0
@@ -345,7 +348,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 21300000, guid: d87ee8d3e26c00a499cbd81747b2d0ca, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 801daed5caf0a9f40b488946be4fd6ee, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -401,7 +404,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_interval: 2.5
-  m_prehab: {fileID: 7014771343959990684, guid: b5c09a52d177e4b4083c498b676773f3, type: 3}
+  _prehab1: {fileID: 7014771343959990684, guid: b5c09a52d177e4b4083c498b676773f3, type: 3}
+  _bikkuri: {fileID: 7962284140642030487}
+  _bikkuriprehab: {fileID: 1013765469666291830, guid: fdb725349298cba4884767ac4df7300a, type: 3}
+  _prehab2: {fileID: 127276467327520518, guid: fdb97e1f87719be49a8f7194d76df6e2, type: 3}
 --- !u!1 &7599790592674224192
 GameObject:
   m_ObjectHideFlags: 0
@@ -475,7 +481,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 85787996193dbbb4dbdc44005963343a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8fc784361dbb74c46849852e03c81953, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -511,7 +517,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7599790593071048795}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.4000001, z: 0}
+  m_LocalPosition: {x: 0.02, y: -0.15, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -559,7 +565,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 351ef6e8f2484ed4f967a247e2f77582, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2d96d8b393d47374690151eaed9ee296, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -643,7 +649,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 6
-  m_Sprite: {fileID: 21300000, guid: 878b0701777b576459b58ae39835d028, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6046e35fbda6f7447b6dca538eeddac0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -759,7 +765,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -2
-  m_Sprite: {fileID: 21300000, guid: 460c5698d89e17e4da2dbb0a082c9dac, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0be3845b443ea4c4cbe6bc4b62eff1b6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -770,3 +776,34 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &7962284140642030487
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 602918072652762431}
+  m_Layer: 0
+  m_Name: BikkuriMazzle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &602918072652762431
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7962284140642030487}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.34, y: 4.22, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7599790591733690801}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

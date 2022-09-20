@@ -8,6 +8,7 @@ public class HebiDama : CopyBase
     private GameObject Mazzle;
     private Transform _atari;
     float _speed = 10f;
+    public float _y = 1;
     Rigidbody2D rb;
     public override void CopyTech()
     {
@@ -25,13 +26,13 @@ public class HebiDama : CopyBase
     {
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = Vector2.left * _speed;
-        float sin = Mathf.Sin(Time.time);
+        float sin = _y +  Mathf.Sin(Time.time);
     }
     private void FixedUpdate()
     {
-        float sin = Mathf.Sin(Time.time*10);
+        float sin = _y + Mathf.Sin(Time.time*10);
         Vector3 pos = transform.position;
-        pos.y = sin;
+        pos.y =sin;
         transform.position = pos;
     }
 }

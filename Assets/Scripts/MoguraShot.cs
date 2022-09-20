@@ -5,9 +5,14 @@ using UnityEngine;
 public class MoguraShot : MonoBehaviour
 {
     [SerializeField] float m_interval = 2.5f;
-    float m_timer;
-    [SerializeField] GameObject m_prehab;
+    float _timer;
+    [SerializeField] GameObject _prehab1;
+    [SerializeField] GameObject _bikkuri;
+    [SerializeField] GameObject _bikkuriprehab;
+    [SerializeField] GameObject _prehab2;
     bool _timerStop;
+    [SerializeField]bool _change;
+    bool _isbikkuri;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,19 +24,39 @@ public class MoguraShot : MonoBehaviour
     {
         if (!_timerStop)
         {
-            m_timer += Time.deltaTime;
+            _timer += Time.deltaTime;
         }
-        if (m_timer > m_interval)
+        if (!_change)
         {
-            m_timer = 0;
-            Instantiate(m_prehab, this.transform.position, this.transform.rotation);
-            _timerStop = true;
-            StartCoroutine(StopTime());
+            if (_timer > m_interval)
+            {
+                _timer = 0;
+                Instantiate(_prehab1, this.transform.position, this.transform.rotation);
+                _timerStop = true;
+                StartCoroutine(StopTime());
+            }
         }
+        else
+        {
+            if(!_isbikkuri && _timer > m_interval - 1)
+            {
+                Instantiate(_bikkuriprehab, _bikkuri.transform.position, Quaternion.identity);
+                _isbikkuri = true;
+            }
+            if (_timer > m_interval)
+            {
+                _timer = 0;
+                Instantiate(_prehab2, this.transform.position, this.transform.rotation);
+                _timerStop = true;
+                StartCoroutine(StopTime());
+            }
+        }
+
     }
     IEnumerator StopTime()
     {
         yield return new WaitForSeconds(0.5f);
         _timerStop = false;
+        _isbikkuri = false;
     }
 }
