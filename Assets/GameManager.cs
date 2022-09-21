@@ -110,6 +110,10 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Input.GetButtonDown("Fire3"))
+        {
+            AddLife(-100f);
+        }
         if (_life <= 0)
         {
             _isgameOver = true;

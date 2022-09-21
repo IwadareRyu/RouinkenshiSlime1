@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LeftMoveBullet : MonoBehaviour
+public class DownBullet : MonoBehaviour
 {
     [SerializeField] float _speed = 5f;
     Rigidbody2D rb;
@@ -14,7 +14,7 @@ public class LeftMoveBullet : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        rb.velocity = Vector2.left * _speed * _minas;
+        rb.velocity = Vector2.down * _speed * _minas;
     }
 
     // Update is called once per frame

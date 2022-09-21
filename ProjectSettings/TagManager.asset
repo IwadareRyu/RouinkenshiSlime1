@@ -23,6 +23,7 @@ TagManager:
   - Score
   - Life
   - HomiGround2
+  - MimikkuBullet
   layers:
   - Default
   - TransparentFX

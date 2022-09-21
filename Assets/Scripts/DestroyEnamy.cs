@@ -10,7 +10,9 @@ public class DestroyEnamy : MonoBehaviour
     [SerializeField] GameObject _hit;
     [SerializeField] GameObject _mimikku;
     [SerializeField] GameObject _mimikkuGekiha;
+    [SerializeField] GameObject _sceneLoad;
     private GameManager GM;
+    [SerializeField]bool _taiho;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,6 +34,7 @@ public class DestroyEnamy : MonoBehaviour
                 if (_mimikku && _mimikkuGekiha)
                 {
                     Instantiate(_mimikkuGekiha, transform.position, Quaternion.identity);
+                    _sceneLoad.SetActive(true);
                     Destroy(gameObject);
                 }
             }
@@ -56,6 +59,11 @@ public class DestroyEnamy : MonoBehaviour
             Instantiate(_hit, collision.transform.position, Quaternion.identity);
             FindObjectOfType<GameManager>().AddLife(-5f);
             GM.StartCoroutine("StarTime");
+        }
+        if(collision.gameObject.tag == "MimikkuBullet" && !_taiho)
+        {
+            Instantiate(_hit, transform.position, Quaternion.identity);
+            _enemyHP = _enemyHP - 2;
         }
     }
 }

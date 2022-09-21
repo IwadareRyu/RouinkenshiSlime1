@@ -342,6 +342,8 @@ MonoBehaviour:
   _hit: {fileID: 7812170106659806327, guid: c590cb316364d614097e6b7009343f2a, type: 3}
   _mimikku: {fileID: 0}
   _mimikkuGekiha: {fileID: 0}
+  _sceneLoad: {fileID: 0}
+  _taiho: 0
 --- !u!61 &39551232
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1034,6 +1036,8 @@ MonoBehaviour:
   _hit: {fileID: 7812170106659806327, guid: c590cb316364d614097e6b7009343f2a, type: 3}
   _mimikku: {fileID: 0}
   _mimikkuGekiha: {fileID: 0}
+  _sceneLoad: {fileID: 0}
+  _taiho: 0
 --- !u!61 &306145013
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2139,6 +2143,8 @@ MonoBehaviour:
   _hit: {fileID: 7812170106659806327, guid: c590cb316364d614097e6b7009343f2a, type: 3}
   _mimikku: {fileID: 0}
   _mimikkuGekiha: {fileID: 0}
+  _sceneLoad: {fileID: 0}
+  _taiho: 0
 --- !u!61 &702356136
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3699,6 +3705,8 @@ MonoBehaviour:
   _hit: {fileID: 7812170106659806327, guid: c590cb316364d614097e6b7009343f2a, type: 3}
   _mimikku: {fileID: 0}
   _mimikkuGekiha: {fileID: 0}
+  _sceneLoad: {fileID: 0}
+  _taiho: 0
 --- !u!61 &1074735119
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4208,6 +4216,8 @@ MonoBehaviour:
   _hit: {fileID: 7812170106659806327, guid: c590cb316364d614097e6b7009343f2a, type: 3}
   _mimikku: {fileID: 0}
   _mimikkuGekiha: {fileID: 0}
+  _sceneLoad: {fileID: 0}
+  _taiho: 0
 --- !u!61 &1222569572
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5398,6 +5408,8 @@ MonoBehaviour:
   _hit: {fileID: 7812170106659806327, guid: c590cb316364d614097e6b7009343f2a, type: 3}
   _mimikku: {fileID: 0}
   _mimikkuGekiha: {fileID: 0}
+  _sceneLoad: {fileID: 0}
+  _taiho: 0
 --- !u!1 &1619257749
 GameObject:
   m_ObjectHideFlags: 0
@@ -5862,6 +5874,8 @@ MonoBehaviour:
   _hit: {fileID: 7812170106659806327, guid: c590cb316364d614097e6b7009343f2a, type: 3}
   _mimikku: {fileID: 0}
   _mimikkuGekiha: {fileID: 0}
+  _sceneLoad: {fileID: 0}
+  _taiho: 0
 --- !u!1 &1915504455
 GameObject:
   m_ObjectHideFlags: 0
