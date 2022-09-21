@@ -29,6 +29,7 @@ public class Homing : CopyBase
         _bulletTurn = GetComponent<Transform>();
         Player = GameObject.FindGameObjectWithTag("Player");
         _playerturn = Player.GetComponent<Transform>();
+        StartCoroutine(HomingTime());
     }
 
     // Update is called once per frame
@@ -51,5 +52,10 @@ public class Homing : CopyBase
         {
             rb.AddForce(_bulletTurn.position.normalized * -_speed);
         }
+    }
+    IEnumerator HomingTime()
+    {
+        yield return new WaitForSeconds(2f);
+        Destroy(gameObject);
     }
 }

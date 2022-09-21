@@ -22,6 +22,7 @@ TagManager:
   - GameOver
   - Score
   - Life
+  - HomiGround2
   layers:
   - Default
   - TransparentFX

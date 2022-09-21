@@ -7,14 +7,15 @@ using DG.Tweening;
 
 public class GameManager : MonoBehaviour
 {
+    private SpriteRenderer pl;
     [SerializeField] Text _scoreText;
-    [SerializeField] float _maxLife = 100;
+    [SerializeField] float _maxLife = 50;
     [SerializeField] string _resultText = "ResultScore";
     [SerializeField] GameObject _gameOverCanvas;
     string _reScore;
     [SerializeField]int _score = 0;
     int _maxScore = 999999;
-    [SerializeField]float _life = 100;
+    [SerializeField]float _life = 50;
     bool _isStarted;
     [SerializeField] bool _godmode;
     [SerializeField] Slider _lifeGauge;
@@ -22,9 +23,12 @@ public class GameManager : MonoBehaviour
     bool _isgameOver;
     public bool _gameover => _isgameOver;
     int _gameoverScore = -99999;
+    bool _star;
+    public bool star => _star;
     // Start is called before the first frame update
     void Start()
     {
+        pl = GameObject.FindGameObjectWithTag("Player").GetComponent<SpriteRenderer>();
         _lifeGauge = _lifeGauge.GetComponent<Slider>();
         if(FindObjectsOfType<GameManager>().Length > 1)
         {
@@ -73,13 +77,13 @@ public class GameManager : MonoBehaviour
         if (!_godmode)
         {
             _life = Mathf.Min(_life + life,_maxLife);
-            ChangeValue(_lifeGauge.value + life / _maxLife);
+            ChangeValue(_lifeGauge.value + (life / _maxLife));
         }
 
     }
     void ChangeValue(float value)
     {
-        DOTween.To(() => _lifeGauge.value, x => _lifeGauge.value = x, value, _gaugeInterval);
+        DOTween.To(() => _lifeGauge.value, x => _lifeGauge.value = x, value, _gaugeInterval).OnComplete(() => _lifeGauge.value = value);
     }
 
     public void SetName(Text input)
@@ -94,12 +98,14 @@ public class GameManager : MonoBehaviour
 
     public void Continue()
     {
+        pl.color = Color.yellow;
         AddScore(_gameoverScore);
         _life = 100;
         ChangeValue(1f);
         _gameOverCanvas.SetActive(false);
         _isgameOver = false; 
         _godmode = true;
+        _star = true;
     }
     // Update is called once per frame
     void Update()
@@ -109,5 +115,14 @@ public class GameManager : MonoBehaviour
             _isgameOver = true;
             _gameOverCanvas.SetActive(true);
         }
+    }
+    public IEnumerator StarTime()
+    {
+        SpriteRenderer pl = GameObject.FindGameObjectWithTag("Player").GetComponent<SpriteRenderer>();
+        _star = true;
+        pl.color = new Color32(140,162,255,255);
+        yield return new WaitForSeconds(1f);
+        _star = false;
+        pl.color = Color.white;
     }
 }

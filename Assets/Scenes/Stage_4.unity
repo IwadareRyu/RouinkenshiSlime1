@@ -892,7 +892,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _score: 100
-  _enemyHP: 40
+  _enemyHP: 50
   _zangeki: {fileID: 2674248802821844076, guid: 3621c77ea763c7d47b9a61f44ee736ce, type: 3}
   _hit: {fileID: 7812170106659806327, guid: c590cb316364d614097e6b7009343f2a, type: 3}
   _mimikku: {fileID: 1195053067}
@@ -3367,11 +3367,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _scoreText: {fileID: 706198374}
-  _maxLife: 100
+  _maxLife: 50
   _resultText: ResultScore
   _gameOverCanvas: {fileID: 1129644422}
   _score: 0
-  _life: 100
+  _life: 50
   _godmode: 0
   _lifeGauge: {fileID: 1455503270}
   _gaugeInterval: 1
@@ -4646,9 +4646,41 @@ PrefabInstance:
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 7412374648348660878, guid: a85c79e3213c55a4299d7f3fefc75baf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7412374648348660878, guid: a85c79e3213c55a4299d7f3fefc75baf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7412374648348660878, guid: a85c79e3213c55a4299d7f3fefc75baf, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1915504456}
+    - target: {fileID: 7412374648348660878, guid: a85c79e3213c55a4299d7f3fefc75baf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7412374648348660878, guid: a85c79e3213c55a4299d7f3fefc75baf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7412374648348660878, guid: a85c79e3213c55a4299d7f3fefc75baf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: set_enabled
+      objectReference: {fileID: 0}
+    - target: {fileID: 7412374648348660878, guid: a85c79e3213c55a4299d7f3fefc75baf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: UnityEngine.Renderer, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7412374648348660878, guid: a85c79e3213c55a4299d7f3fefc75baf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7412374648348660878, guid: a85c79e3213c55a4299d7f3fefc75baf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a85c79e3213c55a4299d7f3fefc75baf, type: 3}
 --- !u!82 &7412374648729025864 stripped

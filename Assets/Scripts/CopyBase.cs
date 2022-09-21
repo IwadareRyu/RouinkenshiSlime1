@@ -11,10 +11,12 @@ public abstract class CopyBase : MonoBehaviour
     [SerializeField] GameObject _player;
     public bool liftHoming = false;
     [SerializeField] GameObject _hit;
+    private GameManager GM;
     public abstract void CopyTech();
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        GM = GameObject.FindGameObjectWithTag("GM").GetComponent<GameManager>();
         //“–‚½‚è”»’è‚É‚ ‚½‚é‚Æ
         if(collision.gameObject.tag.Equals("Atari"))
         {
@@ -44,14 +46,16 @@ public abstract class CopyBase : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-        if (collision.gameObject.tag == "HomingBlock")
+        if(collision.gameObject.tag == "HomingBlock")
         {
             liftHoming = true;
         }
-        if(collision.gameObject.tag == "Player")
+        if(collision.gameObject.tag == "Player" && !GM.star)
         {
             Instantiate(_hit, collision.transform.position, Quaternion.identity);
             FindObjectOfType<GameManager>().AddLife(-5f);
+            GM.StartCoroutine("StarTime");
+            liftHoming = true;
         }
     }
 

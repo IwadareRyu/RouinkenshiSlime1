@@ -15,6 +15,7 @@ public class BoundController : MonoBehaviour
     [SerializeField] GameObject AttackSE;
     [SerializeField] GameObject _mazzleG;
     [SerializeField] GameObject _createG;
+    [SerializeField] GameObject _damage;
     bool _createTime;
     float minas = 1;
     public float _minas => minas;
@@ -109,5 +110,11 @@ public class BoundController : MonoBehaviour
         {
             _rb2d.AddForce(Vector2.up * _jumpPower * 1.5f, ForceMode2D.Impulse);
         }
+    }
+    public void Damage()
+    {
+        if(!_gm.star)
+        Instantiate(_damage, transform.position, Quaternion.identity);
+        _gm.StartCoroutine("StarTime");
     }
 }

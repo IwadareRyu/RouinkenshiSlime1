@@ -6,15 +6,12 @@ public class HebiDama : CopyBase
 {
     [SerializeField] GameObject _copyHebidama;
     private GameObject Mazzle;
-    private Transform _atari;
     float _speed = 10f;
-    public float _y = 1;
     Rigidbody2D rb;
     public override void CopyTech()
     {
-        Mazzle = GameObject.FindGameObjectWithTag("Mazzle");
-        _atari = Mazzle.GetComponent<Transform>();
-        Instantiate(_copyHebidama, _atari.position, Quaternion.identity);
+        Mazzle = GameObject.FindGameObjectWithTag("Atari");
+        Instantiate(_copyHebidama, Mazzle.transform.position, Quaternion.identity);
     }
     //private void Copy()
     //{
@@ -26,11 +23,13 @@ public class HebiDama : CopyBase
     {
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = Vector2.left * _speed;
-        float sin = _y +  Mathf.Sin(Time.time);
+        Mazzle = GameObject.FindGameObjectWithTag("Hebi");
+        float sin = Mazzle.transform.position.y +  Mathf.Sin(Time.time);
     }
     private void FixedUpdate()
     {
-        float sin = _y + Mathf.Sin(Time.time*10);
+        Mazzle = GameObject.FindGameObjectWithTag("Hebi");
+        float sin = Mazzle.transform.position.y + Mathf.Sin(Time.time*10);
         Vector3 pos = transform.position;
         pos.y =sin;
         transform.position = pos;

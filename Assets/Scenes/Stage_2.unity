@@ -473,7 +473,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1466274899}
   m_FillRect: {fileID: 124248729}
   m_HandleRect: {fileID: 1466274898}
@@ -2450,11 +2450,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _scoreText: {fileID: 994864698}
-  _maxLife: 5
+  _maxLife: 50
   _resultText: ResultScore
   _gameOverCanvas: {fileID: 2010493798}
   _score: 0
-  _life: 5
+  _life: 50
   _godmode: 0
   _lifeGauge: {fileID: 360936234}
   _gaugeInterval: 1

@@ -25,14 +25,16 @@ public class ItazuraBulletPlayer : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        GameManager GM = GameObject.FindGameObjectWithTag("GM").GetComponent<GameManager>();
         if (collision.gameObject.tag == "Wall")
         {
             Destroy(this.gameObject);
         }
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player" && !GM.star)
         {
             Instantiate(_hit, collision.transform.position, Quaternion.identity);
             FindObjectOfType<GameManager>().AddLife(-5);
+            GM.StartCoroutine("StarTime");
         }
     }
 }

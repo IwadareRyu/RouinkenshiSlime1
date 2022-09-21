@@ -526,7 +526,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: fa3859c80fea8694381bd3a140ac7b35, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9622642, g: 0.9622642, b: 0.9622642, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -698,6 +698,7 @@ MonoBehaviour:
   AttackSE: {fileID: 5291464307814778211, guid: b77155e1937bdf841b240ace6e99e0e2, type: 3}
   _mazzleG: {fileID: 5486947300219415413}
   _createG: {fileID: 8572177886102014885, guid: ca948aed858056e48935682640b81600, type: 3}
+  _damage: {fileID: 7812170106659806327, guid: c590cb316364d614097e6b7009343f2a, type: 3}
 --- !u!95 &3048117986380715951
 Animator:
   serializedVersion: 4

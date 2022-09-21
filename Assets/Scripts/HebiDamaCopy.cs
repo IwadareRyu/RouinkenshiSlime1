@@ -27,6 +27,7 @@ public class HebiDamaCopy : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        Y = GameObject.FindGameObjectWithTag("Hebi");
         float sin = Y.transform.position.y +  Mathf.Sin(Time.time * 10);
         Vector3 pos = transform.position;
         pos.y = sin;

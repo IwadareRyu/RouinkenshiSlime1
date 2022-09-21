@@ -29,6 +29,7 @@ public class HomingCopy : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        Destroy(gameObject, 5.0f);
     }
 
     // Update is called once per frame
