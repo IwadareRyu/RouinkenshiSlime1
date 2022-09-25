@@ -133,6 +133,7 @@ MonoBehaviour:
   _hit: {fileID: 7812170106659806327, guid: c590cb316364d614097e6b7009343f2a, type: 3}
   _copyTumeBullet: {fileID: 7014771343959990684, guid: 665f6c9f8b995fc4abc4bcfbd7c4e363, type: 3}
   _speed: 10
+  _minas: 1
 --- !u!50 &-4919838116132420809
 Rigidbody2D:
   serializedVersion: 4

@@ -10,6 +10,7 @@ public class TumeBullet : CopyBase
     [SerializeField]float _speed = 5f;
     Rigidbody2D rb;
     PlayerButtobi _flip;
+    [SerializeField,Range(1,-1)] float _minas = 1;
     public override void CopyTech()
     {
 
@@ -26,6 +27,6 @@ public class TumeBullet : CopyBase
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        rb.velocity = Vector2.left * _speed;
+        rb.velocity = Vector2.left * _speed * _minas;
     }
 }

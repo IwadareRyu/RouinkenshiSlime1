@@ -22,8 +22,8 @@ TagManager:
   - GameOver
   - Score
   - Life
-  - HomiGround2
   - MimikkuBullet
+  - Director
   layers:
   - Default
   - TransparentFX

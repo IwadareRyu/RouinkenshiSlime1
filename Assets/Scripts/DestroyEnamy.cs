@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class DestroyEnamy : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class DestroyEnamy : MonoBehaviour
     [SerializeField] GameObject _sceneLoad;
     private GameManager GM;
     [SerializeField]bool _taiho;
+    [SerializeField] bool _event;
+    [SerializeField] UnityEvent _action;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +30,10 @@ public class DestroyEnamy : MonoBehaviour
         {
             if (!_mimikku)
             {
+                if (_event)
+                {
+                    _action.Invoke();
+                }
                 Destroy(this.gameObject);
             }
             else

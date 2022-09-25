@@ -6,6 +6,7 @@ public class SwitchOnOff : MonoBehaviour
 {
     [SerializeField] GameObject _title;
     [SerializeField] GameObject _timelime;
+    [SerializeField] GameObject _sceneLoad;
 
     private void Start()
     {
@@ -21,6 +22,10 @@ public class SwitchOnOff : MonoBehaviour
     {
         _title.gameObject.SetActive(true);
         StartCoroutine("TimeLineTime");
+    }
+    public void TimeSceneLoad()
+    {
+        _sceneLoad.gameObject.SetActive(true);
     }
     public void Skip()
     {
