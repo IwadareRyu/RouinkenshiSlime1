@@ -26,9 +26,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Rezult.unity
     guid: 18c422482df70484980e57020c567089
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/Stage5.unity
     guid: a51d73d96c7599c43924b28e6500d929
@@ -38,4 +35,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Stage_7.unity
     guid: 67ddf43ea02db2d4889d4f090dd5c3b5
+  - enabled: 1
+    path: Assets/Scenes/Stage_8.unity
+    guid: 7342208012aa52342b80f79709dfeaf8
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   m_configObjects: {}

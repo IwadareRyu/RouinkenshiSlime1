@@ -20,6 +20,7 @@ public class BoundController : MonoBehaviour
     float minas = 1;
     public float _minas => minas;
     GameManager _gm;
+    SceneLoader _activeLoad;
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +28,7 @@ public class BoundController : MonoBehaviour
         _rb2d = GetComponent<Rigidbody2D>();
         AttackAni =GetComponent<Animator>();
         _gm = GameObject.FindGameObjectWithTag("GM").GetComponent<GameManager>();
+        _activeLoad = GameObject.FindGameObjectWithTag("GM").GetComponent<SceneLoader>();
     }
 
     // Update is called once per frame
@@ -48,6 +50,10 @@ public class BoundController : MonoBehaviour
             {
                 Instantiate(_createG, _mazzleG.transform.position, Quaternion.identity);
                 _createTime = true;
+            }
+            if(Input.GetButtonDown("Fire2"))
+            {
+                _activeLoad.ActiveSceneLoad();
             }
         }
         else

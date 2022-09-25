@@ -20,6 +20,10 @@ public class SceneLoader : MonoBehaviour
         SceneManager.MoveGameObjectToScene(gameObject, SceneManager.GetActiveScene());
         StartCoroutine(SceneLoadTime(sceneName));
     }
+    public void EndGame()
+    {
+        Application.Quit();
+    }
 
     IEnumerator SceneLoadTime(string sceneName)
     {
