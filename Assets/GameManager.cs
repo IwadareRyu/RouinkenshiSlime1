@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     bool _isgameOver;
     public bool _gameover => _isgameOver;
     int _gameoverScore = -99999;
+    //–³“GŽžŠÔ
     bool _star;
     public bool star => _star;
     // Start is called before the first frame update
