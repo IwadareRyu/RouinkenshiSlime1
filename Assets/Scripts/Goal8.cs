@@ -21,6 +21,7 @@ public class Goal8 : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        //Œ•‚Ì“–‚½‚è”»’è‚É“–‚½‚é‚Æplayabledirector‚ªÄ¶‚³‚ê‚éB
         _playable = GameObject.FindGameObjectWithTag("Director").GetComponent<PlayableDirector>();
         if (collision.gameObject.tag == "Atari")
         {

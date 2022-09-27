@@ -9,8 +9,10 @@ public class TumeBullet : CopyBase
     private Transform _atari;
     [SerializeField]float _speed = 5f;
     Rigidbody2D rb;
-    PlayerButtobi _flip;
+    [Tooltip("左(1)に飛ばすか右(-1)に飛ばすか。")]
     [SerializeField,Range(1,-1)] float _minas = 1;
+
+    /// <summary>コピーを生成する。</summary>
     public override void CopyTech()
     {
 
@@ -18,14 +20,9 @@ public class TumeBullet : CopyBase
         _atari = Mazzle.GetComponent<Transform>();
         Instantiate(_copyTumeBullet, _atari.position, Quaternion.identity);
     }
-    //private void Copy()
-    //{
-    //    Mazzle = GameObject.Find("PlayerMazzle");
-    //    _atari = Mazzle.GetComponent<Transform>();
-    //    Instantiate(_copyTumeBullet,_atari.position,Quaternion.identity);
-    //}
     private void Start()
     {
+        //球を飛ばす。
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = Vector2.left * _speed * _minas;
     }

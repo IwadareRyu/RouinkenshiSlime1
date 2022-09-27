@@ -5,8 +5,8 @@ using UnityEngine;
 public class Ram : MonoBehaviour
 {
     [SerializeField] float m_interval = 3f;
-    float m_timer;
-    [SerializeField] GameObject m_prehab;
+    float _timer;
+    [SerializeField] GameObject _prehab;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,11 +16,12 @@ public class Ram : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        m_timer += Time.deltaTime;
-        if (m_timer > m_interval)
+        _timer += Time.deltaTime;
+        //ˆê’è‚ÌŽžŠÔ‚ª‚½‚Á‚½‚çObject¶¬
+        if (_timer > m_interval)
         {
-            m_timer = 0;
-            Instantiate(m_prehab, this.transform.position, this.transform.rotation);
+            _timer = 0;
+            Instantiate(_prehab, transform.position, transform.rotation);
         }
     }
 }

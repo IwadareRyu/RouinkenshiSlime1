@@ -15,6 +15,7 @@ public class LionMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //左にAddForceで球を飛ばす(このスクリプトLeftMoveBulletとほぼ同じでは...)
         _rb.AddForce(Vector2.left * _power, ForceMode2D.Impulse);
     }
 

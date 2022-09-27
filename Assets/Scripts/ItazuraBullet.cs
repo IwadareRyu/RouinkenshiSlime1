@@ -6,13 +6,14 @@ public class ItazuraBullet : MonoBehaviour
 {
     [SerializeField] float _speed = 5f;
     Rigidbody2D rb;
-    PlayerButtobi _flip;
+    Mimikku _flip;
     [SerializeField] GameObject _hit;
     // Start is called before the first frame update
     void Start()
     {
+        //“G‚ÌŒü‚«‚ğQÆ‚µ‚ÄA‚»‚ÌŒü‚«‚É—Í‚ğ‰Á‚¦‚éB
         rb = GetComponent<Rigidbody2D>();
-        _flip = GameObject.FindWithTag("HomingEnemy").GetComponent<PlayerButtobi>();
+        _flip = GameObject.FindWithTag("HomingEnemy").GetComponent<Mimikku>();
         rb.velocity = Vector2.left * _speed * _flip._minasmimikku;
     }
 
@@ -25,15 +26,18 @@ public class ItazuraBullet : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         GameManager GM = GameObject.FindGameObjectWithTag("GM").GetComponent<GameManager>();
+
         if (collision.gameObject.tag == "Wall")
         {
             Destroy(this.gameObject);
         }
+
         if(collision.gameObject.tag == "Player" && !GM.star)
         {
             Instantiate(_hit, collision.transform.position, Quaternion.identity);
             FindObjectOfType<GameManager>().AddLife(-5f);
             GM.StartCoroutine("StarTime");
         }
+
     }
 }

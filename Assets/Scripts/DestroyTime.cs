@@ -8,6 +8,7 @@ public class DestroyTime : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //ˆê’è‚ÌŠÔ‚ªŒo‚Á‚½‚ç©g‚ğ”j‰óB
         Destroy(this.gameObject, m_deadtime);
     }
 

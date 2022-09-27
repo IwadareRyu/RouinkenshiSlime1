@@ -6,10 +6,11 @@ public abstract class CopyBase : MonoBehaviour
 {
     [Tooltip("パリィしたときに音を鳴らす")]
     [SerializeField] AudioClip _sound = default;
-    /// <summary>アイテムかコピーか</summary>
+    [Tooltip("アイテムかコピーか")]
     [SerializeField] Item _whatitem = Item.Copy;
     [SerializeField] GameObject _player;
-    public bool liftHoming = false;
+    [Tooltip("ホーミングする球の際、対象物をホーミングするかしないか")]
+    public bool notHoming = false;
     [SerializeField] GameObject _hit;
     private GameManager GM;
     public abstract void CopyTech();
@@ -25,16 +26,6 @@ public abstract class CopyBase : MonoBehaviour
             {
                 AudioSource.PlayClipAtPoint(_sound, Camera.main.transform.position);
             }
-
-            //列挙型がコピーだと、リストに保存される。
-            //if(_whatitem == Item.Copy)
-            //{
-            //    //Debug.Log("呼ぶ");
-            //    this.transform.position = Camera.main.transform.position;
-            //    GetComponent<Collider2D>().enabled = false;
-            //    _player.gameObject.GetComponent<BoundController>().GetCopy(this);
-            //    //Destroy(this.gameObject);
-            //}
             //列挙型がitemだと、その場でCopytechを呼び出す。
             if(_whatitem == Item.Copy)
             {
@@ -42,20 +33,23 @@ public abstract class CopyBase : MonoBehaviour
                 Destroy(this.gameObject);
             }
         }
+        //ホーミングに対応していない壁や地面に当たると破壊する。
         else if(collision.gameObject.tag.Equals("Wall") || collision.gameObject.tag == "Ground")
         {
             Destroy(this.gameObject);
         }
+        //ホーミングをやめるブロック
         if(collision.gameObject.tag == "HomingBlock")
         {
-            liftHoming = true;
+            notHoming = true;
         }
+        //プレイヤーに当たるかつ無敵時間じゃないとダメージを受けて、ホーミングを止め、無敵時間の開始。
         if(collision.gameObject.tag == "Player" && !GM.star)
         {
             Instantiate(_hit, collision.transform.position, Quaternion.identity);
             FindObjectOfType<GameManager>().AddLife(-5f);
             GM.StartCoroutine("StarTime");
-            liftHoming = true;
+            notHoming = true;
         }
     }
 

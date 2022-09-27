@@ -7,13 +7,15 @@ public class LeftMoveBullet : MonoBehaviour
     [SerializeField] float _speed = 5f;
     Rigidbody2D rb;
     [SerializeField] GameObject _hit;
+    [Tooltip("左(+1)か右(-1)に球を飛ばす")]
     [SerializeField] float _minas = 1f;
-    [SerializeField] bool _isenemy;
+    [Tooltip("プレイヤーに自身が当たるか当たらないか。")]
     [SerializeField] bool _isPlayer;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        //球をvelocityで飛ばす。
         rb.velocity = Vector2.left * _speed * _minas;
     }
 

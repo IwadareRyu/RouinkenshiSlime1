@@ -4,18 +4,20 @@ using UnityEngine;
 
 public class Infolutedama : MonoBehaviour
 {
+    [Tooltip("‰Šú‚ÌˆÊ’u")]
     Vector2 _senterPos;
+    [Tooltip("‰ñ‚éˆÊ’u")]
     Vector2 _rotaPos;
+    [Tooltip("Å‰‚ÌˆÊ’u")]
     float _startTime;
-    //‰~‰^“®‚Ì‘¬‚³
+    [Tooltip("‰~‰^“®‚Ì‘¬‚³")]
     [SerializeField] float _speed = 2f;
-    //‚±‚Ì•Ï”‚ÍŠÖŒW‚È‚¢B
     [SerializeField] GameObject _hit;
-    //Œv‰ñ‚è‚©”½Œv‰ñ‚è‚ğ1‚©-1‚ğ“ü—Í‚·‚éB
+    [Tooltip("Œv‰ñ‚è‚©”½Œv‰ñ‚è‚ğ1‚©-1‚ğ“ü—Í‚·‚éB")]
     [SerializeField,Range(1,-1)] float _minas = 1f;
-    //‰~‚Ì‘å‚«‚³
+    [Tooltip("‰~‚Ì‘å‚«‚³")]
     [SerializeField]float _radius = 3f;
-    //‰~‰^“®‚ğn‚ß‚éˆÊ’u
+    [Tooltip("‰~‰^“®‚ğn‚ß‚éˆÊ’u")]
     [SerializeField] float _startCirclePos;
     // Start is called before the first frame update
     void Start()
@@ -46,15 +48,18 @@ public class Infolutedama : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         GameManager GM = GameObject.FindGameObjectWithTag("GM").GetComponent<GameManager>();
+
         if (collision.gameObject.tag == "Wall" || collision.gameObject.tag == "Ground")
         {
             Destroy(this.gameObject);
         }
+
         if (collision.gameObject.tag == "Player" && !GM.star)
         {
             Instantiate(_hit, collision.transform.position, Quaternion.identity);
             FindObjectOfType<GameManager>().AddLife(-5f);
             GM.StartCoroutine("StarTime");
         }
+
     }
 }

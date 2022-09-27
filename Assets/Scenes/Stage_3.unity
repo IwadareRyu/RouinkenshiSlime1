@@ -3315,11 +3315,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _scoreText: {fileID: 994864698}
-  _maxLife: 50
+  _maxLife: 70
   _resultText: ResultScore
   _gameOverCanvas: {fileID: 437874083}
   _score: 0
-  _life: 50
+  _life: 70
   _godmode: 0
   _lifeGauge: {fileID: 1536078682}
   _gaugeInterval: 1

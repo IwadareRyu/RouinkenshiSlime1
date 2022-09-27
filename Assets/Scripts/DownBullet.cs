@@ -8,12 +8,13 @@ public class DownBullet : MonoBehaviour
     Rigidbody2D rb;
     [SerializeField] GameObject _hit;
     [SerializeField] float _minas = 1f;
-    [SerializeField] bool _isenemy;
+    [Tooltip("プレイヤーが自身に当たるか当たらないか。")]
     [SerializeField] bool _isPlayer;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        //下に球を出す。
         rb.velocity = Vector2.down * _speed * _minas;
     }
 
@@ -26,10 +27,12 @@ public class DownBullet : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         GameManager GM = GameObject.FindGameObjectWithTag("GM").GetComponent<GameManager>();
+        //壁か地面に当たったら破壊。
         if (collision.gameObject.tag == "Wall" || collision.gameObject.tag == "Ground")
         {
             Destroy(this.gameObject);
         }
+        //プレイヤーへのダメージ(!GM.starは無敵時間じゃないとき)
         if (collision.gameObject.tag == "Player" && !GM.star && !_isPlayer)
         {
             Instantiate(_hit, collision.transform.position, Quaternion.identity);

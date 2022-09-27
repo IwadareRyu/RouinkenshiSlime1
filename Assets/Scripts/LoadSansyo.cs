@@ -5,7 +5,8 @@ using UnityEngine;
 public class LoadSansyo : MonoBehaviour
 {
     private SceneLoader _load;
-    // Start is called before the first frame update
+    /// <summary>別のシーンに飛んで、ボタンを押したとき、GMのSceneLoaderに接続する用のスクリプト</summary>
+    /// <param name="load"></param>
     public void Load(string load)
     {
         _load = GameObject.FindGameObjectWithTag("GM").GetComponent<SceneLoader>();

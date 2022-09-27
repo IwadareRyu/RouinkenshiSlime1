@@ -39,20 +39,23 @@ public class Homing : CopyBase
     }
     private void FixedUpdate()
     {
-        if (!liftHoming)
+        //ホーミングする際、敵と自分の距離常に計算して追尾させる。
+        if (!notHoming)
         {
             Vector3 vector2 = _playerturn.position - _bulletTurn.position;
             rb.AddForce(vector2.normalized * _speed);
-
+            //加速しないようにX,Yのスピードの制限。
             float speedX = Mathf.Clamp(rb.velocity.x, -_limitSpeed, _limitSpeed);
             float speedY = Mathf.Clamp(rb.velocity.y, -_limitSpeed, _limitSpeed);
             rb.velocity = new Vector3(speedX, speedY);
         }
         else
         {
+            //ホーミングしなかったら左にまっすぐ飛ばす。
             rb.AddForce(_bulletTurn.position.normalized * -_speed);
         }
     }
+    //2秒経ったら自身を破壊する。
     IEnumerator HomingTime()
     {
         yield return new WaitForSeconds(2f);

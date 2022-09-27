@@ -8,19 +8,15 @@ public class HebiDama : CopyBase
     private GameObject Mazzle;
     float _speed = 10f;
     Rigidbody2D rb;
+    //当たり判定に当たったら特定のオブジェクト生成。
     public override void CopyTech()
     {
         Mazzle = GameObject.FindGameObjectWithTag("Atari");
         Instantiate(_copyHebidama, Mazzle.transform.position, Quaternion.identity);
     }
-    //private void Copy()
-    //{
-    //    Mazzle = GameObject.Find("PlayerMazzle");
-    //    _atari = Mazzle.GetComponent<Transform>();
-    //    Instantiate(_copyTumeBullet,_atari.position,Quaternion.identity);
-    //}
     private void Start()
     {
+        //位置の初期化。
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = Vector2.left * _speed;
         Mazzle = GameObject.FindGameObjectWithTag("Hebi");
@@ -28,6 +24,7 @@ public class HebiDama : CopyBase
     }
     private void FixedUpdate()
     {
+        //sin1をTime.timeで動かして上下に移動。
         Mazzle = GameObject.FindGameObjectWithTag("Hebi");
         float sin = Mazzle.transform.position.y + Mathf.Sin(Time.time*10);
         Vector3 pos = transform.position;

@@ -12,6 +12,7 @@ public class ItazuraBulletPlayer : MonoBehaviour
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         if(player)
         {
+            //プレイヤーと球の位置を計算して、プレイヤーの方向へ力を加える。
             Vector2 v = player.transform.position - transform.position;
             v = v.normalized * _speed;
 

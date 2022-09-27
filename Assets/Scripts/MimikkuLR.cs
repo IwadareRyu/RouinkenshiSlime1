@@ -18,6 +18,7 @@ public class MimikkuLR : CopyBase
     {
         _playerpos = GameObject.FindGameObjectWithTag("Player");
         _rb = GetComponent<Rigidbody2D>();
+        //プレイヤーの位置と自分の位置を計算して、向きを変える。
         _playerTrans = (_playerpos.transform.position - transform.position).normalized;
         FlipXBullet(_playerTrans);
     }
@@ -29,7 +30,7 @@ public class MimikkuLR : CopyBase
     }
     void FlipXBullet(Vector2 horizontal)
     {
-
+        //プレイヤーが自分の左にいたら左に、右にいたら右にvelocityで動かす。
         if (horizontal.x > 0f)
         {
             this.transform.localScale = new Vector3(Mathf.Abs(this.transform.localScale.x), this.transform.localScale.y, this.transform.localScale.z);
@@ -41,7 +42,7 @@ public class MimikkuLR : CopyBase
             _rb.velocity =  Vector2.right * _speed * -1;
         }
     }
-
+    //当たり判定に当たったら、自分のコピーを生成する。
     public override void CopyTech()
     {
         Mazzle = GameObject.FindGameObjectWithTag("Mazzle");

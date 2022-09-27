@@ -5,11 +5,11 @@ using UnityEngine;
 public class MimikkuTouzyou : MonoBehaviour
 {
     [SerializeField] GameObject Mimi;
-    PlayerButtobi Mimikku;
+    Mimikku Mimikku;
     // Start is called before the first frame update
     void Start()
     {
-        Mimikku = Mimi.GetComponent<PlayerButtobi>();
+        Mimikku = Mimi.GetComponent<Mimikku>();
     }
 
     // Update is called once per frame

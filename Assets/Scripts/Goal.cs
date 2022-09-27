@@ -17,6 +17,7 @@ public class Goal : MonoBehaviour
     {
 
     }
+    //trigger,collison関わらず、プレイヤーに当たったらイベントが起こる。
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")

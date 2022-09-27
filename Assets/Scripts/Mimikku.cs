@@ -3,29 +3,50 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-public class PlayerButtobi : MonoBehaviour
+public class Mimikku : MonoBehaviour
 {
+    [Tooltip("プレイヤー")]
     [SerializeField] GameObject _player;
+    [Tooltip("プレイヤーの位置")]
     [SerializeField] Vector2 _playerTrams;
+    [Tooltip("球を飛ばす初期位置")]
     [SerializeField] GameObject _mazzleE;
+    [Tooltip("！(危険信号)を出す位置")]
     [SerializeField] GameObject _mazzle2;
+    [Tooltip("!(危険信号)")]
     [SerializeField] GameObject _bikkuri;
+    [Tooltip("まっすぐ飛ぶ球")]
     [SerializeField] GameObject _bullet;
+    [Tooltip("プレイヤーに向かって飛ぶ球")]
     [SerializeField] GameObject _playerBullet;
+    [Tooltip("自身の向き")]
     float minas;
     public float _minasmimikku => minas;
+    [Tooltip("ワープする位置")]
     [SerializeField] GameObject _warp;
+    [Tooltip("子分を生成する位置(上)")]
     [SerializeField] GameObject[] _mazzleU;
+    [Tooltip("子分を生成する位置(左)")]
     [SerializeField] GameObject[] _mazzleL;
+    [Tooltip("子分を生成する位置(右)")]
     [SerializeField] GameObject[] _mazzleR;
+    [Tooltip("ワープする位置")]
     [SerializeField] Transform[] _warpMazzle;
+    [Tooltip("上から降ってくるミミック子分")]
     [SerializeField] GameObject _parentsmimikku;
+    [Tooltip("左右から降ってくるミミック子分")]
     [SerializeField] GameObject _parentsmimikkuLR;
+    [Tooltip("自身(this.gameobjectだと箱の方が操作できない。)")]
     [SerializeField] GameObject _myMimikku;
+    [Tooltip("自身(箱のほう)")]
     [SerializeField] GameObject _hakomimikku;
+    [Tooltip("ランダム変数")]
     int ram2;
+    [Tooltip("攻撃している時間のbool型")]
     public bool _attackTime;
+    [Tooltip("自身のアニメーション")]
     Animator _anim;
+    [Tooltip("dotweenで自身が移動する時間")]
     float _time = 1.0f;
     // Start is called before the first frame update
     void Start()
@@ -38,14 +59,17 @@ public class PlayerButtobi : MonoBehaviour
     {
         if (_attackTime)
         {
+            //falseにしてコルーチンが被らないようにする
             _attackTime = false;
             Instantiate(_bikkuri, _mazzle2.transform.position, Quaternion.identity);
             _anim.Play("mumukku2");
+            //コルーチンスタート
             StartCoroutine(EnemyTime());
         }
     }
     private void FixedUpdate()
     {
+        //自身の向きをプレイヤーの位置に合わせて変更する。
         _playerTrams = (_player.transform.position - this.transform.position).normalized;
         FlipX(_playerTrams);
     }
@@ -60,7 +84,7 @@ public class PlayerButtobi : MonoBehaviour
     //}
     void FlipX(Vector2 horizontal)
     {
-
+        //向き
         if (horizontal.x < 0)
         {
             this.transform.localScale = new Vector3(Mathf.Abs(this.transform.localScale.x), this.transform.localScale.y, this.transform.localScale.z);
@@ -71,19 +95,23 @@ public class PlayerButtobi : MonoBehaviour
             this.transform.localScale = new Vector3(-1 * Mathf.Abs(this.transform.localScale.x), this.transform.localScale.y, this.transform.localScale.z);
             minas = -1;
         }
+
     }
     IEnumerator EnemyTime()
     {
+        //球生成*3
         yield return new WaitForSeconds(0.5f);
         Instantiate(_bullet, _mazzleE.transform.position, Quaternion.identity);
         yield return new WaitForSeconds(0.3f);
         Instantiate(_bullet, _mazzleE.transform.position, Quaternion.identity);
         yield return new WaitForSeconds(0.3f);
         Instantiate(_bullet, _mazzleE.transform.position, Quaternion.identity);
+        //一定の位置へ移動
         yield return new WaitForSeconds(3f);
         _myMimikku.transform.DOMove(_warpMazzle[0].position, _time).SetEase(Ease.Linear);
         _anim.Play("Syokanmae");
-
+        
+        //10回ミミック子分(下向き)の召喚
         for(var i = 0;i<10;i++)
         {
             yield return new WaitForSeconds(2f);
@@ -92,6 +120,7 @@ public class PlayerButtobi : MonoBehaviour
             Instantiate(_parentsmimikku, _mazzleU[ram2].transform.position,Quaternion.identity);
         }
 
+        //左に行くか右に行くかをランダム変数でランダムにする。
         yield return new WaitForSeconds(5f);
         int ram = Random.Range(1, 3);
         Debug.Log(ram);
@@ -99,10 +128,13 @@ public class PlayerButtobi : MonoBehaviour
 
         if(ram == 1)
         {
+            /*左のパターン*/
+            //自身を移動させる。
             _myMimikku.transform.DOMove(_warpMazzle[ram].position, _time).SetEase(Ease.Linear);
 
             for (var i = 0;i < 10;i++)
             {
+                //球とミミック(左右)を召喚させる。
                 yield return new WaitForSeconds(2f);
                 Instantiate(_bikkuri, _mazzle2.transform.position, Quaternion.identity);
                 int ram1 = Random.Range(0, 3);
@@ -113,10 +145,13 @@ public class PlayerButtobi : MonoBehaviour
         }
         else
         {
+            /*右のパターン*/
+            //自身を移動させる。
             _myMimikku.transform.DOMove(_warpMazzle[ram].position, _time).SetEase(Ease.Linear);
 
             for (var i = 0; i < 10; i++)
             {
+                //球とミミック(左右)を召喚させる。
                 yield return new WaitForSeconds(2f);
                 Instantiate(_bikkuri, _mazzle2.transform.position, Quaternion.identity);
                 int ram1 = Random.Range(0, 3);
@@ -125,7 +160,7 @@ public class PlayerButtobi : MonoBehaviour
             }
 
         }
-
+        //左か右の待機場所にワープさせて箱になる。
         yield return new WaitForSeconds(5f);
         ram = Random.Range(3, 5);
         Instantiate(_warp, transform.position, Quaternion.identity);

@@ -4530,11 +4530,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _scoreText: {fileID: 706198374}
-  _maxLife: 50
+  _maxLife: 70
   _resultText: ResultScore
   _gameOverCanvas: {fileID: 1129644422}
   _score: 0
-  _life: 50
   _godmode: 0
   _lifeGauge: {fileID: 1455503270}
   _gaugeInterval: 1
@@ -5504,7 +5503,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8387502024964383718, guid: 3a9167f84a1dc4e40bcb90668b25348a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8474281629381620775, guid: 3a9167f84a1dc4e40bcb90668b25348a, type: 3}
       propertyPath: m_LocalPosition.y

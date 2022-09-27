@@ -6,13 +6,15 @@ public class MoguraShot : MonoBehaviour
 {
     [SerializeField] float m_interval = 2.5f;
     float _timer;
+    [Tooltip("当たったら消える球")]
     [SerializeField] GameObject _prehab1;
     [SerializeField] GameObject _bikkuri;
     [SerializeField] GameObject _bikkuriprehab;
+    [Tooltip("貫通球")]
     [SerializeField] GameObject _prehab2;
     bool _timerStop;
+    [Tooltip("貫通球か当たったら消える球か。")]
     [SerializeField]bool _change;
-    bool _isbikkuri;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +30,7 @@ public class MoguraShot : MonoBehaviour
         }
         if (!_change)
         {
+            /*当たったら消える球のパターン*/
             if (_timer > m_interval)
             {
                 _timer = 0;
@@ -38,10 +41,10 @@ public class MoguraShot : MonoBehaviour
         }
         else
         {
-            if(!_isbikkuri && _timer > m_interval - 1)
+            /*貫通球のパターン*/
+            if(_timer > m_interval - 1)
             {
                 Instantiate(_bikkuriprehab, _bikkuri.transform.position, Quaternion.identity);
-                _isbikkuri = true;
             }
             if (_timer > m_interval)
             {
@@ -57,6 +60,5 @@ public class MoguraShot : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         _timerStop = false;
-        _isbikkuri = false;
     }
 }

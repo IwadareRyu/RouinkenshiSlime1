@@ -436,11 +436,11 @@ MonoBehaviour:
   _sound: {fileID: 8300000, guid: 871096c674bbb5b419845b78ecebdc44, type: 3}
   _whatitem: 0
   _player: {fileID: 7552993847349569228, guid: a317265e719211b44a63db19fa10e6a6, type: 3}
-  liftHoming: 0
+  notHoming: 0
   _hit: {fileID: 7812170106659806327, guid: c590cb316364d614097e6b7009343f2a, type: 3}
   _copyTumeBullet: {fileID: 8141131296792202310, guid: 6470f64262d020f49915d65da3315362, type: 3}
   _playerOffest: 2.5
-  _cavePower: 3
+  _cavePower: 2
 --- !u!1 &8767164198247441838
 GameObject:
   m_ObjectHideFlags: 0

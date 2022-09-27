@@ -17,6 +17,7 @@ public class MimikkuGEkiha : MonoBehaviour
     {
         _player = GameObject.FindGameObjectWithTag("Player");
         _rb = GetComponent<Rigidbody2D>();
+        //コルーチン
         StartCoroutine("GekihaTime");
     }
 
@@ -27,12 +28,13 @@ public class MimikkuGEkiha : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        //プレイヤーの位置と自分の位置を計算して、向きを変える。
         _playerTrams = (_player.transform.position - transform.position).normalized;
         FlipX(_playerTrams);
     }
     void FlipX(Vector2 horizontal)
     {
-
+        //向き
         if (horizontal.x < 0)
         {
             this.transform.localScale = new Vector3(Mathf.Abs(this.transform.localScale.x), this.transform.localScale.y, this.transform.localScale.z);
@@ -44,6 +46,8 @@ public class MimikkuGEkiha : MonoBehaviour
             minas = 1;
         }
     }
+    /// <summary>一定の時間がたった後に、斜め上に力を加え、音を出す。</summary>
+    /// <returns></returns>
     IEnumerator GekihaTime()
     {
         yield return new WaitForSeconds(3.5f);
