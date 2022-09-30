@@ -100,12 +100,12 @@ public class Mimikku : MonoBehaviour
     IEnumerator EnemyTime()
     {
         //球生成*3
-        yield return new WaitForSeconds(0.5f);
-        Instantiate(_bullet, _muzzleE.transform.position, Quaternion.identity);
-        yield return new WaitForSeconds(0.3f);
-        Instantiate(_bullet, _muzzleE.transform.position, Quaternion.identity);
-        yield return new WaitForSeconds(0.3f);
-        Instantiate(_bullet, _muzzleE.transform.position, Quaternion.identity);
+        yield return new WaitForSeconds(0.2f);
+        for (var i = 0; i < 3; i++)
+        {
+            yield return new WaitForSeconds(0.3f);
+            Instantiate(_bullet, _muzzleE.transform.position, Quaternion.identity);
+        }
         //一定の位置へ移動
         yield return new WaitForSeconds(3f);
         _myMimikku.transform.DOMove(_warpMuzzle[0].position, _time).SetEase(Ease.Linear);
@@ -134,12 +134,8 @@ public class Mimikku : MonoBehaviour
 
             for (var i = 0;i < 10;i++)
             {
-                //球とミミック(左右)を召喚させる。
                 yield return new WaitForSeconds(2f);
-                Instantiate(_bikkuri, _muzzle2.transform.position, Quaternion.identity);
-                int ram1 = Random.Range(0, 3);
-                Instantiate(_parentsmimikkuLR, _muzzleL[ram1].transform.position, Quaternion.identity);
-                Instantiate(_playerBullet, _muzzleE.transform.position, Quaternion.identity);
+                SyokanTime(_muzzleL);
             }
 
         }
@@ -151,12 +147,8 @@ public class Mimikku : MonoBehaviour
 
             for (var i = 0; i < 10; i++)
             {
-                //球とミミック(左右)を召喚させる。
                 yield return new WaitForSeconds(2f);
-                Instantiate(_bikkuri, _muzzle2.transform.position, Quaternion.identity);
-                int ram1 = Random.Range(0, 3);
-                Instantiate(_parentsmimikkuLR, _muzzleR[ram1].transform.position, Quaternion.identity);
-                Instantiate(_playerBullet, _muzzleE.transform.position, Quaternion.identity);
+                SyokanTime(_muzzleR);
             }
 
         }
@@ -169,4 +161,14 @@ public class Mimikku : MonoBehaviour
         _hakomimikku.gameObject.SetActive(true);
         gameObject.SetActive(false);
     }
+
+    void SyokanTime(GameObject[] _muzzleLR)
+    {
+        //球とミミック(左右)を召喚させる。
+        Instantiate(_bikkuri, _muzzle2.transform.position, Quaternion.identity);
+        int ram1 = Random.Range(0, 3);
+        Instantiate(_parentsmimikkuLR, _muzzleLR[ram1].transform.position, Quaternion.identity);
+        Instantiate(_playerBullet, _muzzleE.transform.position, Quaternion.identity);
+    }
+
 }

@@ -3466,7 +3466,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_interval: 3
-  _prehab: {fileID: 0}
+  _prehab: {fileID: 8150929985887061976, guid: e6267f5e2ac2ab5408a4e52ba06df619, type: 3}
 --- !u!1 &1087139049
 GameObject:
   m_ObjectHideFlags: 0

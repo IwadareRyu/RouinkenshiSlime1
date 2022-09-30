@@ -1827,7 +1827,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_interval: 4
-  m_prehab: {fileID: 873671517613810981, guid: 7bdaaba064017264b886ab08f5043a69, type: 3}
+  _prehab: {fileID: 873671517613810981, guid: 7bdaaba064017264b886ab08f5043a69, type: 3}
 --- !u!1001 &983358766
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2926,7 +2926,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_interval: 3
-  m_prehab: {fileID: 873671517613810981, guid: 7bdaaba064017264b886ab08f5043a69, type: 3}
+  _prehab: {fileID: 873671517613810981, guid: 7bdaaba064017264b886ab08f5043a69, type: 3}
 --- !u!1001 &1786392107
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3319,7 +3319,6 @@ MonoBehaviour:
   _resultText: ResultScore
   _gameOverCanvas: {fileID: 437874083}
   _score: 0
-  _life: 70
   _godmode: 0
   _lifeGauge: {fileID: 1536078682}
   _gaugeInterval: 1

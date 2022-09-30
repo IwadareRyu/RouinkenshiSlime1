@@ -239,30 +239,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player: {fileID: 0}
   _playerTrams: {x: 0, y: 0}
-  _mazzleE: {fileID: 6155041174806600679}
-  _mazzle2: {fileID: 2261951408191248488}
+  _muzzleE: {fileID: 0}
+  _muzzle2: {fileID: 0}
   _bikkuri: {fileID: 1013765469666291830, guid: fdb725349298cba4884767ac4df7300a, type: 3}
   _bullet: {fileID: 8150929985887061976, guid: 8b48a42e8d8064347b5ca1813bc7b0ef, type: 3}
   _playerBullet: {fileID: 8150929985887061976, guid: 63fcb0327e9dfbf4183996eed242227a, type: 3}
   _warp: {fileID: 7708366680537244781, guid: 68c005c8d8f7055469b01856e918ddda, type: 3}
-  _mazzleU:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  _mazzleL:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  _mazzleR:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  _warpMazzle:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  _muzzleU: []
+  _muzzleL: []
+  _muzzleR: []
+  _warpMuzzle: []
   _parentsmimikku: {fileID: 8141131296792202310, guid: d41dad783a7f6e54f80db2bba68c15cd, type: 3}
   _parentsmimikkuLR: {fileID: 8141131296792202310, guid: c8bf68bcc3a1151409c69375aaebf256, type: 3}
   _myMimikku: {fileID: 755438685861821426}
@@ -534,7 +520,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3417697427622364774}
   - component: {fileID: 6442772743079633137}
-  - component: {fileID: 5149096539114652250}
   m_Layer: 0
   m_Name: Mimikkukosprite
   m_TagString: Enemy
@@ -609,27 +594,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!50 &5149096539114652250
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2873099589488266295}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
 --- !u!1 &5149096537841772966
 GameObject:
   m_ObjectHideFlags: 0

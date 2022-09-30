@@ -210,7 +210,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_interval: 4
-  m_prehab: {fileID: 873671517613810981, guid: 7bdaaba064017264b886ab08f5043a69, type: 3}
+  _prehab: {fileID: 873671517613810981, guid: 7bdaaba064017264b886ab08f5043a69, type: 3}
 --- !u!1 &2488132989443965616
 GameObject:
   m_ObjectHideFlags: 0
@@ -256,4 +256,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_interval: 3
-  m_prehab: {fileID: 873671517613810981, guid: 7bdaaba064017264b886ab08f5043a69, type: 3}
+  _prehab: {fileID: 873671517613810981, guid: 7bdaaba064017264b886ab08f5043a69, type: 3}

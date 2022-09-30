@@ -148,7 +148,9 @@ public class GameManager : MonoBehaviour
         //_star‚ğtrue‚É‚µ‚Äˆê’èŠÔ–³“GŠÔ‚ğ”­¶‚³‚¹‚éB
         SpriteRenderer pl = GameObject.FindGameObjectWithTag("Player").GetComponent<SpriteRenderer>();
         _star = true;
-        pl.color = new Color32(140,162,255,255);
+        Color _color;
+        ColorUtility.TryParseHtmlString("#8CA2FF", out _color);
+        pl.color = _color;
         yield return new WaitForSeconds(1f);
         _star = false;
         pl.color = Color.white;

@@ -2589,6 +2589,14 @@ PrefabInstance:
       propertyPath: _zangeki
       value: 
       objectReference: {fileID: 2674248802821844076, guid: 0b96236193da9b74eb8a45d19938adf5, type: 3}
+    - target: {fileID: 2488132988447485817, guid: 7e2df3ec42cda6f4f9d1176607ca16e8, type: 3}
+      propertyPath: _prehab
+      value: 
+      objectReference: {fileID: 873671517613810981, guid: 7bdaaba064017264b886ab08f5043a69, type: 3}
+    - target: {fileID: 2488132989443965622, guid: 7e2df3ec42cda6f4f9d1176607ca16e8, type: 3}
+      propertyPath: _prehab
+      value: 
+      objectReference: {fileID: 873671517613810981, guid: 7bdaaba064017264b886ab08f5043a69, type: 3}
     m_RemovedComponents:
     - {fileID: 2488132988317825815, guid: 7e2df3ec42cda6f4f9d1176607ca16e8, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7e2df3ec42cda6f4f9d1176607ca16e8, type: 3}
