@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class CopyBase : MonoBehaviour
 {
     [Tooltip("パリィしたときに音を鳴らす")]
-    [SerializeField] AudioClip _sound = default;
+    [SerializeField] AudioClip _sound;
     [Tooltip("アイテムかコピーか")]
     [SerializeField] Item _whatitem = Item.Copy;
     [SerializeField] GameObject _player;
@@ -13,6 +13,7 @@ public abstract class CopyBase : MonoBehaviour
     public bool notHoming = false;
     [SerializeField] GameObject _hit;
     private GameManager GM;
+    /// <summary>継承</summary>
     public abstract void CopyTech();
 
     private void OnTriggerEnter2D(Collider2D collision)

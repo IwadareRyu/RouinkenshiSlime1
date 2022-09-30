@@ -20,6 +20,7 @@ public class HomingCopy : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         _bulletTurn = GetComponent<Transform>();
         Enemy = GameObject.FindGameObjectWithTag("HomingEnemy");
+        _enemyturn = Enemy.GetComponent<Transform>();
 
         if (Enemy)
         {

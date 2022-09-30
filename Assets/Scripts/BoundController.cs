@@ -32,7 +32,7 @@ public class BoundController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //‚»‚ê‚¼‚ê‚Ì‚à‚Ì‚ğGetConponent‚·‚éB
+        //‚»‚ê‚¼‚ê‚Ì—v‘f‚ğGetConponent‚·‚éB
         _rb = GetComponent<Rigidbody2D>();
         AttackAni =GetComponent<Animator>();
         _gm = GameObject.FindGameObjectWithTag("GM").GetComponent<GameManager>();
@@ -129,10 +129,4 @@ public class BoundController : MonoBehaviour
             _rb.AddForce(Vector2.up * _jumpPower * 1.5f, ForceMode2D.Impulse);
         }
     }
-    //public void Damage()
-    //{
-    //    if(!_gm.star)
-    //    Instantiate(_damage, transform.position, Quaternion.identity);
-    //    _gm.StartCoroutine("StarTime");
-    //}
 }

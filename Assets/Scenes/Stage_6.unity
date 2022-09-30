@@ -3466,7 +3466,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_interval: 3
-  m_prehab: {fileID: 8150929985887061976, guid: e6267f5e2ac2ab5408a4e52ba06df619, type: 3}
+  _prehab: {fileID: 0}
 --- !u!1 &1087139049
 GameObject:
   m_ObjectHideFlags: 0
@@ -5616,7 +5616,6 @@ MonoBehaviour:
   _resultText: ResultScore
   _gameOverCanvas: {fileID: 437874083}
   _score: 0
-  _life: 70
   _godmode: 0
   _lifeGauge: {fileID: 1536078682}
   _gaugeInterval: 1
@@ -6001,7 +6000,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_interval: 3
-  m_prehab: {fileID: 8150929985887061976, guid: e6267f5e2ac2ab5408a4e52ba06df619, type: 3}
+  _prehab: {fileID: 8150929985887061976, guid: e6267f5e2ac2ab5408a4e52ba06df619, type: 3}
 --- !u!1 &2116517076
 GameObject:
   m_ObjectHideFlags: 0

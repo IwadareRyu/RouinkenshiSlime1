@@ -2304,7 +2304,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_interval: 3
-  m_prehab: {fileID: 8150929985887061976, guid: 5bd62642162db3c4cb6ac215f31ea90d, type: 3}
+  _prehab: {fileID: 8150929985887061976, guid: 5bd62642162db3c4cb6ac215f31ea90d, type: 3}
 --- !u!1 &1380739636 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6982155530634180435, guid: a317265e719211b44a63db19fa10e6a6, type: 3}
@@ -2340,7 +2340,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_interval: 4
-  m_prehab: {fileID: 4279015562470405867, guid: dac30c34d55823c41b2dbdba27f917be, type: 3}
+  _prehab: {fileID: 4279015562470405867, guid: dac30c34d55823c41b2dbdba27f917be, type: 3}
 --- !u!4 &1427843427
 Transform:
   m_ObjectHideFlags: 0
@@ -3086,7 +3086,6 @@ MonoBehaviour:
   _resultText: ResultScore
   _gameOverCanvas: {fileID: 2010493798}
   _score: 0
-  _life: 70
   _godmode: 0
   _lifeGauge: {fileID: 360936234}
   _gaugeInterval: 1

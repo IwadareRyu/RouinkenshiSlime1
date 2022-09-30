@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     int _maxScore = 999999;
     [Tooltip("現在のライフ値")]
     float _life;
+    bool _isStarted;
     [Tooltip("無敵モード(デバック用でもある)")]
     [SerializeField] bool _godmode;
     [SerializeField] Slider _lifeGauge;
@@ -47,6 +48,7 @@ public class GameManager : MonoBehaviour
         {
             DontDestroyOnLoad(gameObject);
             ShowScore();
+            _isStarted = true;
         }
         //ライフの限界値を現在のライフに代入する。
         _life = _maxLife;
@@ -57,7 +59,7 @@ public class GameManager : MonoBehaviour
         ChangeValue(1f);
     }
     /// <summary>リザルトシーンの際、scoreを表示する。</summary>
-    private void ShowScore()
+    public void ShowScore()
     {
         GameObject go = GameObject.Find(_resultText);
         Text text = go?.GetComponent<Text>();
@@ -133,6 +135,11 @@ public class GameManager : MonoBehaviour
             _isgameOver = true;
             _gameOverCanvas.SetActive(true);
         }
+    }
+
+    private void OnLevelWasLoaded(int level)
+    {
+        if (_isStarted) ShowScore();
     }
     /// <summary>無敵時間</summary>
     /// <returns></returns>

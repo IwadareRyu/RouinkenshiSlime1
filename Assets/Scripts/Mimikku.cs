@@ -10,9 +10,9 @@ public class Mimikku : MonoBehaviour
     [Tooltip("プレイヤーの位置")]
     [SerializeField] Vector2 _playerTrams;
     [Tooltip("球を飛ばす初期位置")]
-    [SerializeField] GameObject _mazzleE;
+    [SerializeField] GameObject _muzzleE;
     [Tooltip("！(危険信号)を出す位置")]
-    [SerializeField] GameObject _mazzle2;
+    [SerializeField] GameObject _muzzle2;
     [Tooltip("!(危険信号)")]
     [SerializeField] GameObject _bikkuri;
     [Tooltip("まっすぐ飛ぶ球")]
@@ -22,16 +22,16 @@ public class Mimikku : MonoBehaviour
     [Tooltip("自身の向き")]
     float minas;
     public float _minasmimikku => minas;
-    [Tooltip("ワープする位置")]
+    [Tooltip("ワープする際に出るエフェクト")]
     [SerializeField] GameObject _warp;
     [Tooltip("子分を生成する位置(上)")]
-    [SerializeField] GameObject[] _mazzleU;
+    [SerializeField] GameObject[] _muzzleU;
     [Tooltip("子分を生成する位置(左)")]
-    [SerializeField] GameObject[] _mazzleL;
+    [SerializeField] GameObject[] _muzzleL;
     [Tooltip("子分を生成する位置(右)")]
-    [SerializeField] GameObject[] _mazzleR;
+    [SerializeField] GameObject[] _muzzleR;
     [Tooltip("ワープする位置")]
-    [SerializeField] Transform[] _warpMazzle;
+    [SerializeField] Transform[] _warpMuzzle;
     [Tooltip("上から降ってくるミミック子分")]
     [SerializeField] GameObject _parentsmimikku;
     [Tooltip("左右から降ってくるミミック子分")]
@@ -41,7 +41,7 @@ public class Mimikku : MonoBehaviour
     [Tooltip("自身(箱のほう)")]
     [SerializeField] GameObject _hakomimikku;
     [Tooltip("ランダム変数")]
-    int ram2;
+    int _ram2;
     [Tooltip("攻撃している時間のbool型")]
     public bool _attackTime;
     [Tooltip("自身のアニメーション")]
@@ -61,7 +61,7 @@ public class Mimikku : MonoBehaviour
         {
             //falseにしてコルーチンが被らないようにする
             _attackTime = false;
-            Instantiate(_bikkuri, _mazzle2.transform.position, Quaternion.identity);
+            Instantiate(_bikkuri, _muzzle2.transform.position, Quaternion.identity);
             _anim.Play("mumukku2");
             //コルーチンスタート
             StartCoroutine(EnemyTime());
@@ -101,14 +101,14 @@ public class Mimikku : MonoBehaviour
     {
         //球生成*3
         yield return new WaitForSeconds(0.5f);
-        Instantiate(_bullet, _mazzleE.transform.position, Quaternion.identity);
+        Instantiate(_bullet, _muzzleE.transform.position, Quaternion.identity);
         yield return new WaitForSeconds(0.3f);
-        Instantiate(_bullet, _mazzleE.transform.position, Quaternion.identity);
+        Instantiate(_bullet, _muzzleE.transform.position, Quaternion.identity);
         yield return new WaitForSeconds(0.3f);
-        Instantiate(_bullet, _mazzleE.transform.position, Quaternion.identity);
+        Instantiate(_bullet, _muzzleE.transform.position, Quaternion.identity);
         //一定の位置へ移動
         yield return new WaitForSeconds(3f);
-        _myMimikku.transform.DOMove(_warpMazzle[0].position, _time).SetEase(Ease.Linear);
+        _myMimikku.transform.DOMove(_warpMuzzle[0].position, _time).SetEase(Ease.Linear);
         _anim.Play("Syokanmae");
         
         //10回ミミック子分(下向き)の召喚
@@ -116,8 +116,8 @@ public class Mimikku : MonoBehaviour
         {
             yield return new WaitForSeconds(2f);
             int ram1 = Random.Range(0, 3);
-            ram2 = ram1;
-            Instantiate(_parentsmimikku, _mazzleU[ram2].transform.position,Quaternion.identity);
+            _ram2 = ram1;
+            Instantiate(_parentsmimikku, _muzzleU[_ram2].transform.position,Quaternion.identity);
         }
 
         //左に行くか右に行くかをランダム変数でランダムにする。
@@ -130,16 +130,16 @@ public class Mimikku : MonoBehaviour
         {
             /*左のパターン*/
             //自身を移動させる。
-            _myMimikku.transform.DOMove(_warpMazzle[ram].position, _time).SetEase(Ease.Linear);
+            _myMimikku.transform.DOMove(_warpMuzzle[ram].position, _time).SetEase(Ease.Linear);
 
             for (var i = 0;i < 10;i++)
             {
                 //球とミミック(左右)を召喚させる。
                 yield return new WaitForSeconds(2f);
-                Instantiate(_bikkuri, _mazzle2.transform.position, Quaternion.identity);
+                Instantiate(_bikkuri, _muzzle2.transform.position, Quaternion.identity);
                 int ram1 = Random.Range(0, 3);
-                Instantiate(_parentsmimikkuLR, _mazzleL[ram1].transform.position, Quaternion.identity);
-                Instantiate(_playerBullet, _mazzleE.transform.position, Quaternion.identity);
+                Instantiate(_parentsmimikkuLR, _muzzleL[ram1].transform.position, Quaternion.identity);
+                Instantiate(_playerBullet, _muzzleE.transform.position, Quaternion.identity);
             }
 
         }
@@ -147,16 +147,16 @@ public class Mimikku : MonoBehaviour
         {
             /*右のパターン*/
             //自身を移動させる。
-            _myMimikku.transform.DOMove(_warpMazzle[ram].position, _time).SetEase(Ease.Linear);
+            _myMimikku.transform.DOMove(_warpMuzzle[ram].position, _time).SetEase(Ease.Linear);
 
             for (var i = 0; i < 10; i++)
             {
                 //球とミミック(左右)を召喚させる。
                 yield return new WaitForSeconds(2f);
-                Instantiate(_bikkuri, _mazzle2.transform.position, Quaternion.identity);
+                Instantiate(_bikkuri, _muzzle2.transform.position, Quaternion.identity);
                 int ram1 = Random.Range(0, 3);
-                Instantiate(_parentsmimikkuLR, _mazzleR[ram1].transform.position, Quaternion.identity);
-                Instantiate(_playerBullet, _mazzleE.transform.position, Quaternion.identity);
+                Instantiate(_parentsmimikkuLR, _muzzleR[ram1].transform.position, Quaternion.identity);
+                Instantiate(_playerBullet, _muzzleE.transform.position, Quaternion.identity);
             }
 
         }
@@ -164,7 +164,7 @@ public class Mimikku : MonoBehaviour
         yield return new WaitForSeconds(5f);
         ram = Random.Range(3, 5);
         Instantiate(_warp, transform.position, Quaternion.identity);
-        _myMimikku.transform.position = _warpMazzle[ram].position;
+        _myMimikku.transform.position = _warpMuzzle[ram].position;
         Instantiate(_warp, transform.position, Quaternion.identity);
         _hakomimikku.gameObject.SetActive(true);
         gameObject.SetActive(false);
