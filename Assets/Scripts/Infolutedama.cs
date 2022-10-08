@@ -39,8 +39,8 @@ public class Infolutedama : MonoBehaviour
         //現在の位置から回るようにしている。
         _rotaPos = _senterPos;
         //中央からの距離をxとyのポジションの位置で計算する。
-        _rotaPos.x += _radius * Mathf.Sin(2 * Mathf.PI * _speed * _startTime *_minas);
-        _rotaPos.y += _radius * Mathf.Cos(2 * Mathf.PI * _speed * _startTime *_minas);
+        _rotaPos.x += _radius * Mathf.Cos(2 * Mathf.PI * _speed * _startTime *_minas);
+        _rotaPos.y += _radius * Mathf.Sin(2 * Mathf.PI * _speed * _startTime *_minas);
         //現在の位置を代入する。
         transform.position = _rotaPos;
     }

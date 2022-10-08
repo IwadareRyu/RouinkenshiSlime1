@@ -2161,7 +2161,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_interval: 3
-  m_prehab: {fileID: 7014771343959990684, guid: b5c09a52d177e4b4083c498b676773f3, type: 3}
+  _prehab: {fileID: 0}
 --- !u!1001 &904824874
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2977,7 +2977,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 5a1413b208d794d42a75f16da45507da, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b2e2ccf5885a1c245aaae4f1791861ac, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3118,7 +3118,6 @@ MonoBehaviour:
   _resultText: ResultScore
   _gameOverCanvas: {fileID: 0}
   _score: 0
-  _life: 100
   _godmode: 0
   _lifeGauge: {fileID: 360936234}
   _gaugeInterval: 1
